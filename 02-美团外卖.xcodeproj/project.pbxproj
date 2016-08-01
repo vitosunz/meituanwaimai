@@ -45,6 +45,7 @@
 		95E1EF0C1D4F23B700C13F30 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95E1EEEA1D4F23B700C13F30 /* SVProgressHUD.bundle */; };
 		95E1EF0D1D4F23B700C13F30 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EEEC1D4F23B700C13F30 /* SVProgressHUD.m */; };
 		95E1EF0E1D4F23B700C13F30 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EEEE1D4F23B700C13F30 /* SVRadialGradientLayer.m */; };
+		95E1EF161D4F3DDF00C13F30 /* ZShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +53,8 @@
 		95E1EE901D4F008800C13F30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95E1EE921D4F008800C13F30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		95E1EE931D4F008800C13F30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		95E1EE951D4F008800C13F30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		95E1EE961D4F008800C13F30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		95E1EE951D4F008800C13F30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../ViewController.h; sourceTree = "<group>"; };
+		95E1EE961D4F008800C13F30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../../ViewController.m; sourceTree = "<group>"; };
 		95E1EE991D4F008800C13F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95E1EE9B1D4F008800C13F30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E1EE9E1D4F008800C13F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,6 +129,8 @@
 		95E1EEED1D4F23B700C13F30 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		95E1EEEE1D4F23B700C13F30 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		95E1EF0F1D4F2ECF00C13F30 /* Meituan-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meituan-PrefixHeader.pch"; sourceTree = "<group>"; };
+		95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopViewController.h; sourceTree = "<group>"; };
+		95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +164,9 @@
 		95E1EE8E1D4F008800C13F30 /* 02-美团外卖 */ = {
 			isa = PBXGroup;
 			children = (
+				95E1EF101D4F3BBE00C13F30 /* Classes */,
 				95E1EE921D4F008800C13F30 /* AppDelegate.h */,
 				95E1EE931D4F008800C13F30 /* AppDelegate.m */,
-				95E1EE951D4F008800C13F30 /* ViewController.h */,
-				95E1EE961D4F008800C13F30 /* ViewController.m */,
 				95E1EE981D4F008800C13F30 /* Main.storyboard */,
 				95E1EE9B1D4F008800C13F30 /* Assets.xcassets */,
 				95E1EE9D1D4F008800C13F30 /* LaunchScreen.storyboard */,
@@ -283,6 +285,41 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		95E1EF101D4F3BBE00C13F30 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				95E1EF111D4F3BBE00C13F30 /* Home */,
+				95E1EF121D4F3BBE00C13F30 /* Main */,
+				95E1EF131D4F3BBE00C13F30 /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		95E1EF111D4F3BBE00C13F30 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */,
+				95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		95E1EF121D4F3BBE00C13F30 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		95E1EF131D4F3BBE00C13F30 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				95E1EE951D4F008800C13F30 /* ViewController.h */,
+				95E1EE961D4F008800C13F30 /* ViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +426,7 @@
 				95E1EF091D4F23B700C13F30 /* UIView+WebCacheOperation.m in Sources */,
 				95E1EEF21D4F23B700C13F30 /* MASConstraintMaker.m in Sources */,
 				95E1EF0B1D4F23B700C13F30 /* SVProgressAnimatedView.m in Sources */,
+				95E1EF161D4F3DDF00C13F30 /* ZShopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
