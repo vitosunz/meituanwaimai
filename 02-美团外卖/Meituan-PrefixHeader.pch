@@ -15,4 +15,13 @@
 #import "SVProgressHUD.h"
 #import "Masonry.h"
 
+/**
+ *  调试的宏
+ */
+#ifdef DEBUG
+#   define ZLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define ZLog(...)
+#endif
+
 #endif /* Meituan_PrefixHeader_pch */

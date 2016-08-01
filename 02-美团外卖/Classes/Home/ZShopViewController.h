@@ -6,8 +6,8 @@
 //  Copyright © 2016 itHeima. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZBaseViewController.h"
 
-@interface ZShopViewController : UIViewController
+@interface ZShopViewController : ZBaseViewController
 
 @end
