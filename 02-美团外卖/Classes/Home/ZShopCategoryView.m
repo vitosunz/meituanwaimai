@@ -30,7 +30,8 @@
         [buttons addObject:btn];
     }
     
-    // 添加按钮约束, 三个按钮大小相等, 左右互相约束
+    // -------- 添加按钮约束 --------
+    // 三个按钮大小相等, 左右互相约束
     [buttons[0] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.equalTo(self);
     }];
@@ -42,6 +43,18 @@
         make.left.equalTo(buttons[1].mas_right);
         make.size.top.equalTo(buttons[1]);
         make.right.equalTo(self);
+    }];
+    
+    // ------- 添加线条视图 --------
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = [UIColor zColorWithHex:0xffd900];
+    [self addSubview:lineView];
+    
+    // 约束在第一个按钮位置下
+    UIButton *firstBtn = buttons.firstObject;
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.bottom.centerX.equalTo(firstBtn);
+        make.height.mas_equalTo(4);
     }];
 }
 
