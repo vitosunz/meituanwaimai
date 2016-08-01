@@ -8,6 +8,20 @@
 
 #import "ZShopCategoryView.h"
 
+@interface ZShopCategoryView ()
+
+/**
+ *  线条视图
+ */
+@property (weak, nonatomic) UIView *lineView;
+
+/**
+ *  点菜按钮
+ */
+@property (weak, nonatomic) UIButton *foodButton;
+
+@end
+
 @implementation ZShopCategoryView
 
 #pragma mark - 界面初始化
@@ -49,12 +63,40 @@
     UIView *lineView = [[UIView alloc] init];
     lineView.backgroundColor = [UIColor zColorWithHex:0xffd900];
     [self addSubview:lineView];
+    self.lineView = lineView;
     
     // 约束在第一个按钮位置下
     UIButton *firstBtn = buttons.firstObject;
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.bottom.centerX.equalTo(firstBtn);
         make.height.mas_equalTo(4);
+    }];
+    
+    // -------- 添加按钮点击事件 --------
+    NSUInteger index = 0;
+    for (UIButton *btn in buttons) {
+        // 添加响应事件
+        [btn addTarget:self action:@selector(categoryButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        // 先赋值, 再自增
+        btn.tag = index++;
+    }
+    
+    self.foodButton = buttons[0];
+}
+
+#pragma mark - 按钮响应事件
+
+- (void)categoryButtonAction:(UIButton *)sender
+{
+    // 根据选中按钮的tag值来修改线条视图
+    [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+        // 根据按钮的位置调整线条视图的x值
+        make.centerX.equalTo(self.foodButton).offset(sender.tag * sender.bounds.size.width);
+    }];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        // 重新布局子视图
+        [self layoutIfNeeded];
     }];
 }
 
