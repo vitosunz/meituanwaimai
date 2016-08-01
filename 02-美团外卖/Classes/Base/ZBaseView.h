@@ -16,6 +16,6 @@
 /**
  *  所有控制器的基类
  */
-- (void)setupUI;
+- (void)zSetupUI;
 
 @end

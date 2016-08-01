@@ -17,11 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupUI];
+    [self zSetupUI];
 }
 
 #pragma mark - 设置界面
-- (void)setupUI {
+- (void)zSetupUI {
     
 }
 

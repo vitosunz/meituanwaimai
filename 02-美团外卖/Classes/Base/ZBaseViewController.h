@@ -16,6 +16,6 @@
 /**
  *  设置视图层次结构
  */
-- (void)setupUI;
+- (void)zSetupUI;
 
 @end

@@ -13,13 +13,13 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupUI];
+        [self zSetupUI];
     }
     return self;
 }
 
 #pragma mark - 设置界面
-- (void)setupUI {
+- (void)zSetupUI {
     
 }
 
