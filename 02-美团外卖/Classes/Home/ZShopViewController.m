@@ -19,6 +19,21 @@
 
 @implementation ZShopViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.title = @"猿糞之家";
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // 设置导航栏透明度
+    self.navigationController.navigationBar.alpha = 0;
+}
+
 - (void)zSetupUI
 {
     // 0. 设置背景颜色
@@ -74,14 +89,21 @@
     // 注意: 手势复位归零 (旋转/缩放/平移 都需要复位)
     [recognizer setTranslation:CGPointZero inView:self.view];
     
-    // 2. 计算顶度视图高度的修改值
-    CGFloat height = self.headerView.bounds.size.height + translation.y;
+    // 2. 计算顶度视图修改后的新高度
+    CGFloat newHeight = self.headerView.bounds.size.height + translation.y;
     
     // -------- 高度最大值处理 --------
     // 自定义最大值范围 | 最小高度范围 (status bar + navigation bar)
-    if (height > HeaderViewHeight || height < 64) {
+    CGFloat minHeight = 64;
+    if (newHeight > HeaderViewHeight || newHeight < minHeight) {
         return;
     }
+    
+    // -------- 根据高度, 修改导航栏的透明度 --------
+    // 1 - (headerView当前呈现的高度 / headerView能呈现的最大高度)
+    CGFloat alpha = 1- (newHeight - minHeight) / (HeaderViewHeight - minHeight);
+    // 修正一下浅色的aplha值
+    alpha = (alpha < 0.1) ? 0 : alpha;
     
     // 3. 根据手势状态处理顶部视图高度
     switch (recognizer.state) {
@@ -90,8 +112,11 @@
         {
             // 更新约束
             [self.headerView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(height);
+                make.height.mas_equalTo(newHeight);
             }];
+            
+            // 修改导航条的透明度
+            self.navigationController.navigationBar.alpha = alpha;
             break;
         }
         default:
