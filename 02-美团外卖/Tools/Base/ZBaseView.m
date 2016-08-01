@@ -10,7 +10,8 @@
 
 @implementation ZBaseView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self zSetupUI];
@@ -19,8 +20,9 @@
 }
 
 #pragma mark - 设置界面
-- (void)zSetupUI {
-    
+- (void)zSetupUI
+{
+
 }
 
 @end

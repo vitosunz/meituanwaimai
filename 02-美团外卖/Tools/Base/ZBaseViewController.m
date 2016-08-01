@@ -14,15 +14,18 @@
 
 @implementation ZBaseViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self zSetupUI];
 }
 
 #pragma mark - 设置界面
-- (void)zSetupUI {
-    
+- (void)zSetupUI
+{
+    // 0. 设置背景颜色
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 @end

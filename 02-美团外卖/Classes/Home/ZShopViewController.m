@@ -7,6 +7,7 @@
 //
 
 #import "ZShopViewController.h"
+#import "ZShopCategoryView.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
@@ -36,8 +37,7 @@
 
 - (void)zSetupUI
 {
-    // 0. 设置背景颜色
-    self.view.backgroundColor = [UIColor whiteColor];
+    [super zSetupUI];
 
     // -------- 1. 设置顶部视图(UIView) --------
     UIView *headerView = [[UIView alloc] init];
@@ -52,8 +52,9 @@
         make.height.mas_equalTo(HeaderViewHeight);
     }];
     
-    // -------- 2. 设置分类视图(UIView) --------
-    UIView *categoryView = [[UIView alloc] init];
+    // -------- 2. 设置分类视图(自定义) --------
+//    UIView *categoryView = [[UIView alloc] init];
+    ZShopCategoryView *categoryView = [[ZShopCategoryView alloc] init];
     categoryView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:categoryView];
     
