@@ -56,6 +56,7 @@
 		95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5D1D50D3E500750BD7 /* ZShopFood.m */; };
 		95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */; };
 		95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */; };
+		95E39A691D50D7F700750BD7 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E39A681D50D7F700750BD7 /* food.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,7 @@
 		95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodCategory.m; sourceTree = "<group>"; };
 		95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodViewController.h; sourceTree = "<group>"; };
 		95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodViewController.m; sourceTree = "<group>"; };
+		95E39A681D50D7F700750BD7 /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		95E1EE8F1D4F008800C13F30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95E39A681D50D7F700750BD7 /* food.json */,
 				95E1EF0F1D4F2ECF00C13F30 /* Meituan-PrefixHeader.pch */,
 				95E1EE901D4F008800C13F30 /* main.m */,
 			);
@@ -481,6 +484,7 @@
 				95E1EF881D4F772D00C13F30 /* SVProgressHUD.bundle in Resources */,
 				95E1EF6B1D4F772D00C13F30 /* Info.plist in Resources */,
 				95E1EE9F1D4F008800C13F30 /* LaunchScreen.storyboard in Resources */,
+				95E39A691D50D7F700750BD7 /* food.json in Resources */,
 				95E1EE9C1D4F008800C13F30 /* Assets.xcassets in Resources */,
 				95E1EE9A1D4F008800C13F30 /* Main.storyboard in Resources */,
 			);

@@ -65,9 +65,8 @@
 
 - (NSString *)description
 {
-    NSArray *keys = @[@"name", @"spus"];
-    
-    return [self dictionaryWithValuesForKeys:keys].description;
+    // 在模型的开发中, 使用调试, 经常会重写该方法来输出需要的信息
+    return [NSString stringWithFormat:@"<%@: %p> {name = %@, spus = %@}", NSStringFromClass(self.class), self, _name, _spus];
 }
 
 @end

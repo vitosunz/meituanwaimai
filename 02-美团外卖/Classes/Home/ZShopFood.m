@@ -15,4 +15,9 @@
     // 如果未定义的key, 则忽略
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p> {name = %@, month_saled_content = %@, min_price = %@, praise_num = %@, picture = %@, desc = %@}", NSStringFromClass(self.class), self, _name, _month_saled_content, @(_min_price), @(_praise_num), _picture, _desc];
+}
+
 @end

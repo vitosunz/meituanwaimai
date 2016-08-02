@@ -37,4 +37,6 @@
  */
 @property (copy, nonatomic) NSString *desc;
 
+@property (copy, nonatomic) NSString *picture;
+
 @end
