@@ -53,6 +53,9 @@
 		95E1EF911D4F785B00C13F30 /* UIColor+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF901D4F785B00C13F30 /* UIColor+ZUtilities.m */; };
 		95E1EF941D4F7F7D00C13F30 /* UIScreen+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF931D4F7F7D00C13F30 /* UIScreen+ZUtilities.m */; };
 		95E1EF971D4F802200C13F30 /* UIView+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF961D4F802200C13F30 /* UIView+ZUtilities.m */; };
+		95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5D1D50D3E500750BD7 /* ZShopFood.m */; };
+		95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */; };
+		95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +156,12 @@
 		95E1EF931D4F7F7D00C13F30 /* UIScreen+ZUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+ZUtilities.m"; sourceTree = "<group>"; };
 		95E1EF951D4F802200C13F30 /* UIView+ZUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZUtilities.h"; sourceTree = "<group>"; };
 		95E1EF961D4F802200C13F30 /* UIView+ZUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZUtilities.m"; sourceTree = "<group>"; };
+		95E39A5C1D50D3E500750BD7 /* ZShopFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFood.h; sourceTree = "<group>"; };
+		95E39A5D1D50D3E500750BD7 /* ZShopFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFood.m; sourceTree = "<group>"; };
+		95E39A5E1D50D3E500750BD7 /* ZShopFoodCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodCategory.h; sourceTree = "<group>"; };
+		95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodCategory.m; sourceTree = "<group>"; };
+		95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodViewController.h; sourceTree = "<group>"; };
+		95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +230,9 @@
 		95E1EF111D4F3BBE00C13F30 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */,
-				95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */,
-				95E1EF1E1D4F757500C13F30 /* ZShopCategoryView.h */,
-				95E1EF1F1D4F757500C13F30 /* ZShopCategoryView.m */,
+				95E39A631D50D3FA00750BD7 /* Controller */,
+				95E39A641D50D40B00750BD7 /* View */,
+				95E39A621D50D3EA00750BD7 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -381,6 +389,37 @@
 			path = ZUtilities;
 			sourceTree = "<group>";
 		};
+		95E39A621D50D3EA00750BD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95E39A5C1D50D3E500750BD7 /* ZShopFood.h */,
+				95E39A5D1D50D3E500750BD7 /* ZShopFood.m */,
+				95E39A5E1D50D3E500750BD7 /* ZShopFoodCategory.h */,
+				95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		95E39A631D50D3FA00750BD7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */,
+				95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */,
+				95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */,
+				95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		95E39A641D50D40B00750BD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95E1EF1E1D4F757500C13F30 /* ZShopCategoryView.h */,
+				95E1EF1F1D4F757500C13F30 /* ZShopCategoryView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -454,8 +493,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */,
 				95E1EF7B1D4F772D00C13F30 /* SDWebImageDownloader.m in Sources */,
 				95E1EF721D4F772D00C13F30 /* NSArray+MASAdditions.m in Sources */,
+				95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */,
 				95E1EF711D4F772D00C13F30 /* MASViewConstraint.m in Sources */,
 				95E1EF7E1D4F772D00C13F30 /* SDWebImagePrefetcher.m in Sources */,
 				95E1EF851D4F772D00C13F30 /* UIView+WebCacheOperation.m in Sources */,
@@ -467,6 +508,7 @@
 				95E1EF741D4F772D00C13F30 /* View+MASAdditions.m in Sources */,
 				95E1EF8A1D4F772D00C13F30 /* SVRadialGradientLayer.m in Sources */,
 				95E1EE971D4F008800C13F30 /* ViewController.m in Sources */,
+				95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */,
 				95E1EF841D4F772D00C13F30 /* UIImageView+WebCache.m in Sources */,
 				95E1EF6D1D4F772D00C13F30 /* MASConstraint.m in Sources */,
 				95E1EE941D4F008800C13F30 /* AppDelegate.m in Sources */,
