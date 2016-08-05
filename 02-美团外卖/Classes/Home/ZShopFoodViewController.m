@@ -9,7 +9,24 @@
 #import "ZShopFoodViewController.h"
 #import "ZShopFoodCategory.h"
 
-@implementation ZShopFoodViewController
+/**
+ *  可重用标识
+ */
+static NSString *CategoryCellReuseID = @"CategoryCellReuseID";
+
+@interface ZShopFoodViewController () <UITableViewDataSource>
+
+@property (weak, nonatomic) UITableView *categoryView;
+@property (weak, nonatomic) UITableView *listTableView;
+
+@end
+
+@implementation ZShopFoodViewController {
+    /**
+     *  菜品分类数组
+     */
+    NSArray <ZShopFoodCategory *> *_foodList;
+}
 
 - (void)viewDidLoad
 {
@@ -17,6 +34,62 @@
     
     // 加载数据
     [self loadData];
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // 多个TableView使用同一个DataSource和Delegate时, 需要在代理方法中处理判断
+    if (tableView == _categoryView) {
+        return _foodList.count;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // 获取注册的原型Cell
+    UITableViewCell *categoryCell = [tableView dequeueReusableCellWithIdentifier:CategoryCellReuseID];
+
+    if (tableView == self.categoryView) {
+        categoryCell.textLabel.text = _foodList[indexPath.row].name;
+    }
+    
+    return categoryCell;
+}
+
+
+#pragma mark - 界面初始化
+
+- (void)setupUI
+{
+    // -------- 添加两个TableView --------
+    // 菜品分类视图
+    UITableView *categoryView = [[UITableView alloc] init];
+    [self.view addSubview:categoryView];
+    self.categoryView = categoryView;
+    
+    // 菜品列表视图
+    UITableView *listTableView = [[UITableView alloc] init];
+    [self.view addSubview:listTableView];
+    self.listTableView = listTableView;
+    
+    // -------- 添加约束 --------
+    [categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(self.view);
+        make.width.mas_equalTo(86);
+    }];
+    
+    [listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.bottom.equalTo(self.view);
+        make.left.equalTo(categoryView.mas_right).offset(9);
+    }];
+    
+    // -------- 配置TableView --------
+    // 注册 原型Cell
+    [categoryView registerClass:[UITableViewCell class] forCellReuseIdentifier:CategoryCellReuseID];
+    // 配置 数据源
+    categoryView.dataSource = self;
 }
 
 #pragma mark - 数据加载

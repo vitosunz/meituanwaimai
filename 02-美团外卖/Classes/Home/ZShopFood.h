@@ -37,6 +37,9 @@
  */
 @property (copy, nonatomic) NSString *desc;
 
+/**
+ *  配图的链接地址
+ */
 @property (copy, nonatomic) NSString *picture;
 
 @end

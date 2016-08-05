@@ -20,7 +20,7 @@
     // -------- 通过代码加载启动界面 --------
     self.window = [[UIWindow alloc] init];
     
-    Class shopClass = NSClassFromString(@"ZShopViewController");
+    Class shopClass = NSClassFromString(@"ZShopFoodViewController");
     UIViewController *shopVC = [[shopClass alloc] init];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:shopVC];

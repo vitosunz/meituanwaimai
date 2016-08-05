@@ -57,6 +57,7 @@
 		95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */; };
 		95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */; };
 		95E39A691D50D7F700750BD7 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E39A681D50D7F700750BD7 /* food.json */; };
+		95E39A6C1D50E1D200750BD7 /* NSObject+ZDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A6B1D50E1D200750BD7 /* NSObject+ZDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,8 @@
 		95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodViewController.h; sourceTree = "<group>"; };
 		95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodViewController.m; sourceTree = "<group>"; };
 		95E39A681D50D7F700750BD7 /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
+		95E39A6A1D50E1D200750BD7 /* NSObject+ZDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZDescription.h"; sourceTree = "<group>"; };
+		95E39A6B1D50E1D200750BD7 /* NSObject+ZDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZDescription.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +391,8 @@
 				95E1EF961D4F802200C13F30 /* UIView+ZUtilities.m */,
 				95CD89F71D4F8E6100BD16AA /* UIButton+ZUtilities.h */,
 				95CD89F81D4F8E6100BD16AA /* UIButton+ZUtilities.m */,
+				95E39A6A1D50E1D200750BD7 /* NSObject+ZDescription.h */,
+				95E39A6B1D50E1D200750BD7 /* NSObject+ZDescription.m */,
 			);
 			path = ZUtilities;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */,
 				95E1EF7B1D4F772D00C13F30 /* SDWebImageDownloader.m in Sources */,
 				95E1EF721D4F772D00C13F30 /* NSArray+MASAdditions.m in Sources */,
+				95E39A6C1D50E1D200750BD7 /* NSObject+ZDescription.m in Sources */,
 				95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */,
 				95E1EF711D4F772D00C13F30 /* MASViewConstraint.m in Sources */,
 				95E1EF7E1D4F772D00C13F30 /* SDWebImagePrefetcher.m in Sources */,
