@@ -106,15 +106,8 @@
     
     // -------- 添加点菜控制器 --------
     ZShopFoodViewController *foodVC = [[ZShopFoodViewController alloc] init];
-    
-    // 添加子控制器  注意: 如果不添加会导致响应者链条被打断, 事件无法正常传递
-    [self addChildViewController:foodVC];
-    
-    // 将子控制器视图添加到内容视图上
-    [sizeView addSubview:foodVC.view];
-    
-    // 完成子控制器的添加 (控制器内部可能做了相关操作)
-    [foodVC didMoveToParentViewController:self];
+    // 添加控制器视图到sizeView中
+    [self zAddChildConrollerView:foodVC intoView:sizeView];
     
     // 修改子控制器的视图, 适应sizeView的大小
     [foodVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,6 +116,26 @@
     }];
     
     return contentView;
+}
+
+/**
+ *  重构添加子控制器视图的方法
+    1. 新建方法, 复制要重构的代码
+    2. 根据代码调整参数和返回值
+    3. 修改调用位置的代码
+    4. 测试
+    5. 修改注释
+ */
+- (void)zAddChildConrollerView:(UIViewController *)viewController intoView:(UIView *)view
+{
+    // 添加子控制器  注意: 如果不添加会导致响应者链条被打断, 事件无法正常传递
+    [self addChildViewController:viewController];
+    
+    // 将子控制器视图添加到内容视图上
+    [view addSubview:viewController.view];
+    
+    // 完成子控制器的添加 (控制器内部可能做了相关操作)
+    [viewController didMoveToParentViewController:self];
 }
 
 #pragma mark - 手势响应处理
