@@ -18,8 +18,8 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
 
 @interface ZShopFoodViewController () <UITableViewDataSource>
 
-@property (weak, nonatomic) UITableView *categoryView;
-@property (weak, nonatomic) UITableView *listTableView;
+@property (weak, nonatomic) UITableView *foodCategoryView;
+@property (weak, nonatomic) UITableView *foodListView;
 
 @end
 
@@ -27,7 +27,7 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     /**
      *  菜品分类数组
      */
-    NSArray <ZShopFoodCategory *> *_foodList;
+    NSArray <ZShopFoodCategory *> *_foodCategorys;
 }
 
 - (void)viewDidLoad
@@ -46,23 +46,23 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == self.categoryView) {
+    if (tableView == self.foodCategoryView) {
         // 菜品分类只需要一组
         return 1;
-    } else if (tableView == self.listTableView) {
+    } else if (tableView == self.foodListView) {
         // 返回菜品的分组行数
-        return _foodList.count;
+        return _foodCategorys.count;
     }
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.categoryView) {
-        return _foodList.count;
-    } else if (tableView == self.listTableView) {
+    if (tableView == self.foodCategoryView) {
+        return _foodCategorys.count;
+    } else if (tableView == self.foodListView) {
         // 返回每个菜品分类对应的菜品数量
-        return _foodList[section].spus.count;
+        return _foodCategorys[section].spus.count;
     }
     return 0;
 }
@@ -71,19 +71,19 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
 {
     UITableViewCell *cell = nil;
     
-    if (tableView == self.categoryView)
+    if (tableView == self.foodCategoryView)
     {
         // 获取注册的原型Cell
         cell = [tableView dequeueReusableCellWithIdentifier:CategoryCellReuseID];
-        cell.textLabel.text = _foodList[indexPath.row].name;
+        cell.textLabel.text = _foodCategorys[indexPath.row].name;
     }
-    else if (tableView == self.listTableView)
+    else if (tableView == self.foodListView)
     {
         // 获取注册的原型Cell
         cell = [tableView dequeueReusableCellWithIdentifier:ListCellReuseID];
         
         // 获取菜品分类的模型
-        ZShopFoodCategory *foodCategory = _foodList[indexPath.section];
+        ZShopFoodCategory *foodCategory = _foodCategorys[indexPath.section];
         // 获取菜品分类模型中spus属性中indexPath所对应菜品模型
         ZShopFood *food = foodCategory.spus[indexPath.row];
         
@@ -95,37 +95,37 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
 
 #pragma mark - 界面初始化
 
-- (void)setupUI
+- (void)zSetupUI
 {
     // -------- 添加两个TableView --------
     // 菜品分类视图
-    UITableView *categoryView = [[UITableView alloc] init];
-    [self.view addSubview:categoryView];
-    self.categoryView = categoryView;
+    UITableView *foodCategoryView = [[UITableView alloc] init];
+    [self.view addSubview:foodCategoryView];
+    self.foodCategoryView = foodCategoryView;
     
     // 菜品列表视图
-    UITableView *listTableView = [[UITableView alloc] init];
-    [self.view addSubview:listTableView];
-    self.listTableView = listTableView;
+    UITableView *foodListView = [[UITableView alloc] init];
+    [self.view addSubview:foodListView];
+    self.foodListView = foodListView;
     
     // -------- 添加约束 --------
-    [categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [foodCategoryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.bottom.equalTo(self.view);
         make.width.mas_equalTo(86);
     }];
     
-    [listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [foodListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.equalTo(self.view);
-        make.left.equalTo(categoryView.mas_right).offset(9);
+        make.left.equalTo(foodCategoryView.mas_right).offset(9);
     }];
     
     // -------- 配置TableView --------
     // 注册 原型Cell, 此处演示比较简单, 并没有自定义Cell
-    [categoryView registerClass:[UITableViewCell class] forCellReuseIdentifier:CategoryCellReuseID];
-    [listTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
+    [foodCategoryView registerClass:[UITableViewCell class] forCellReuseIdentifier:CategoryCellReuseID];
+    [foodListView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
     // 配置 数据源
-    categoryView.dataSource = self;
-    listTableView.dataSource = self;
+    foodCategoryView.dataSource = self;
+    foodListView.dataSource = self;
 }
 
 #pragma mark - 数据加载
@@ -156,7 +156,7 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
         [tempArrM addObject:foodcategory];
     }
     
-    _foodList = [tempArrM copy];
+    _foodCategorys = [tempArrM copy];
 //    NSLog(@"%@", tempArrM);
 }
 
