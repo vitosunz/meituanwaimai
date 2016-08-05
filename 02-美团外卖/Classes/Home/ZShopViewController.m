@@ -7,6 +7,7 @@
 //
 
 #import "ZShopViewController.h"
+#import "ZShopFoodViewController.h"
 #import "ZShopCategoryView.h"
 
 // C语言的常量值通常使用k开头
@@ -86,6 +87,8 @@
 {
     UIScrollView *contentView = [[UIScrollView alloc] init];
     contentView.backgroundColor = [UIColor orangeColor];
+    // 开启页面支持
+    contentView.pagingEnabled = YES;
     
     // -------- 添加尺寸视图, 将后继视图添加到该视图上, 方便布局 --------
     UIView *sizeView = [[UIView alloc] init];
@@ -99,6 +102,24 @@
         // 约束 宽和高 等于于设置了 contentSize
         make.height.equalTo(contentView.mas_height);
         make.width.equalTo(contentView).multipliedBy(3);
+    }];
+    
+    // -------- 添加点菜控制器 --------
+    ZShopFoodViewController *foodVC = [[ZShopFoodViewController alloc] init];
+    
+    // 添加子控制器  注意: 如果不添加会导致响应者链条被打断, 事件无法正常传递
+    [self addChildViewController:foodVC];
+    
+    // 将子控制器视图添加到内容视图上
+    [sizeView addSubview:foodVC.view];
+    
+    // 完成子控制器的添加 (控制器内部可能做了相关操作)
+    [foodVC didMoveToParentViewController:self];
+    
+    // 修改子控制器的视图, 适应sizeView的大小
+    [foodVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(sizeView);
+        make.width.equalTo(contentView);
     }];
     
     return contentView;
