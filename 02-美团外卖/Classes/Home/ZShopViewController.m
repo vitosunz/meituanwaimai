@@ -35,6 +35,8 @@
     self.navigationController.navigationBar.alpha = 0;
 }
 
+#pragma mark - 界面初始化
+
 - (void)zSetupUI
 {
     [super zSetupUI];
@@ -66,8 +68,7 @@
     }];
     
     // -------- 3. 设置底部的内容视图(UIScrollView) --------
-    UIScrollView *contentView = [[UIScrollView alloc] init];
-    contentView.backgroundColor = [UIColor orangeColor];
+    UIScrollView *contentView = [self setupContentView];
     [self.view addSubview:contentView];
     
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,6 +79,29 @@
     // -------- 添加平滑手势 --------
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureAction:)];
     [self.view addGestureRecognizer:panGesture];
+}
+
+// 加载底部的内容视图
+- (UIScrollView *)setupContentView
+{
+    UIScrollView *contentView = [[UIScrollView alloc] init];
+    contentView.backgroundColor = [UIColor orangeColor];
+    
+    // -------- 添加尺寸视图, 将后继视图添加到该视图上, 方便布局 --------
+    UIView *sizeView = [[UIView alloc] init];
+    sizeView.backgroundColor = [UIColor blueColor];
+    [contentView addSubview:sizeView];
+    
+    // 添加约束
+    [sizeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        // 约束 edges 等价于设置了 contentInset 和 frame
+        make.edges.equalTo(contentView);
+        // 约束 宽和高 等于于设置了 contentSize
+        make.height.equalTo(contentView.mas_height);
+        make.width.equalTo(contentView).multipliedBy(3);
+    }];
+    
+    return contentView;
 }
 
 #pragma mark - 手势响应处理
