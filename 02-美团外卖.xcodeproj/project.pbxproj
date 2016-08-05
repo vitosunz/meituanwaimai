@@ -14,10 +14,8 @@
 		95E1EE9A1D4F008800C13F30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E1EE981D4F008800C13F30 /* Main.storyboard */; };
 		95E1EE9C1D4F008800C13F30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E1EE9B1D4F008800C13F30 /* Assets.xcassets */; };
 		95E1EE9F1D4F008800C13F30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E1EE9D1D4F008800C13F30 /* LaunchScreen.storyboard */; };
-		95E1EF161D4F3DDF00C13F30 /* ZShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */; };
 		95E1EF1A1D4F418F00C13F30 /* ZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF191D4F418F00C13F30 /* ZBaseViewController.m */; };
 		95E1EF1D1D4F419A00C13F30 /* ZBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF1C1D4F419A00C13F30 /* ZBaseView.m */; };
-		95E1EF201D4F757500C13F30 /* ZShopCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF1F1D4F757500C13F30 /* ZShopCategoryView.m */; };
 		95E1EF6B1D4F772D00C13F30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95E1EF241D4F772D00C13F30 /* Info.plist */; };
 		95E1EF6C1D4F772D00C13F30 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF261D4F772D00C13F30 /* MASCompositeConstraint.m */; };
 		95E1EF6D1D4F772D00C13F30 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF291D4F772D00C13F30 /* MASConstraint.m */; };
@@ -53,11 +51,13 @@
 		95E1EF911D4F785B00C13F30 /* UIColor+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF901D4F785B00C13F30 /* UIColor+ZUtilities.m */; };
 		95E1EF941D4F7F7D00C13F30 /* UIScreen+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF931D4F7F7D00C13F30 /* UIScreen+ZUtilities.m */; };
 		95E1EF971D4F802200C13F30 /* UIView+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EF961D4F802200C13F30 /* UIView+ZUtilities.m */; };
-		95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5D1D50D3E500750BD7 /* ZShopFood.m */; };
-		95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */; };
-		95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */; };
 		95E39A691D50D7F700750BD7 /* food.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E39A681D50D7F700750BD7 /* food.json */; };
 		95E39A6C1D50E1D200750BD7 /* NSObject+ZDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A6B1D50E1D200750BD7 /* NSObject+ZDescription.m */; };
+		95E39A9A1D54820000750BD7 /* ZShopCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */; };
+		95E39A9B1D54820000750BD7 /* ZShopFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A911D54820000750BD7 /* ZShopFoodViewController.m */; };
+		95E39A9C1D54820000750BD7 /* ZShopFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A941D54820000750BD7 /* ZShopFood.m */; };
+		95E39A9D1D54820000750BD7 /* ZShopFoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A961D54820000750BD7 /* ZShopFoodCategory.m */; };
+		95E39A9E1D54820000750BD7 /* ZShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A991D54820000750BD7 /* ZShopViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,14 +74,10 @@
 		95E1EE9E1D4F008800C13F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E1EEA01D4F008800C13F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E1EF0F1D4F2ECF00C13F30 /* Meituan-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meituan-PrefixHeader.pch"; sourceTree = "<group>"; };
-		95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopViewController.h; sourceTree = "<group>"; };
-		95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopViewController.m; sourceTree = "<group>"; };
 		95E1EF181D4F418F00C13F30 /* ZBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBaseViewController.h; sourceTree = "<group>"; };
 		95E1EF191D4F418F00C13F30 /* ZBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBaseViewController.m; sourceTree = "<group>"; };
 		95E1EF1B1D4F419A00C13F30 /* ZBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBaseView.h; sourceTree = "<group>"; };
 		95E1EF1C1D4F419A00C13F30 /* ZBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBaseView.m; sourceTree = "<group>"; };
-		95E1EF1E1D4F757500C13F30 /* ZShopCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopCategoryView.h; sourceTree = "<group>"; };
-		95E1EF1F1D4F757500C13F30 /* ZShopCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopCategoryView.m; sourceTree = "<group>"; };
 		95E1EF241D4F772D00C13F30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E1EF251D4F772D00C13F30 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		95E1EF261D4F772D00C13F30 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -158,15 +154,19 @@
 		95E1EF931D4F7F7D00C13F30 /* UIScreen+ZUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+ZUtilities.m"; sourceTree = "<group>"; };
 		95E1EF951D4F802200C13F30 /* UIView+ZUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZUtilities.h"; sourceTree = "<group>"; };
 		95E1EF961D4F802200C13F30 /* UIView+ZUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZUtilities.m"; sourceTree = "<group>"; };
-		95E39A5C1D50D3E500750BD7 /* ZShopFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFood.h; sourceTree = "<group>"; };
-		95E39A5D1D50D3E500750BD7 /* ZShopFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFood.m; sourceTree = "<group>"; };
-		95E39A5E1D50D3E500750BD7 /* ZShopFoodCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodCategory.h; sourceTree = "<group>"; };
-		95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodCategory.m; sourceTree = "<group>"; };
-		95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodViewController.h; sourceTree = "<group>"; };
-		95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodViewController.m; sourceTree = "<group>"; };
 		95E39A681D50D7F700750BD7 /* food.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = food.json; sourceTree = "<group>"; };
 		95E39A6A1D50E1D200750BD7 /* NSObject+ZDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZDescription.h"; sourceTree = "<group>"; };
 		95E39A6B1D50E1D200750BD7 /* NSObject+ZDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZDescription.m"; sourceTree = "<group>"; };
+		95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopCategoryView.h; sourceTree = "<group>"; };
+		95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopCategoryView.m; sourceTree = "<group>"; };
+		95E39A901D54820000750BD7 /* ZShopFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodViewController.h; sourceTree = "<group>"; };
+		95E39A911D54820000750BD7 /* ZShopFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodViewController.m; sourceTree = "<group>"; };
+		95E39A931D54820000750BD7 /* ZShopFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFood.h; sourceTree = "<group>"; };
+		95E39A941D54820000750BD7 /* ZShopFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFood.m; sourceTree = "<group>"; };
+		95E39A951D54820000750BD7 /* ZShopFoodCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodCategory.h; sourceTree = "<group>"; };
+		95E39A961D54820000750BD7 /* ZShopFoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodCategory.m; sourceTree = "<group>"; };
+		95E39A981D54820000750BD7 /* ZShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopViewController.h; sourceTree = "<group>"; };
+		95E39A991D54820000750BD7 /* ZShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,21 +226,11 @@
 		95E1EF101D4F3BBE00C13F30 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				95E1EF111D4F3BBE00C13F30 /* Home */,
+				95E39A8A1D54820000750BD7 /* Home */,
 				95E1EF121D4F3BBE00C13F30 /* Main */,
 				95E1EF131D4F3BBE00C13F30 /* Other */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		95E1EF111D4F3BBE00C13F30 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				95E39A631D50D3FA00750BD7 /* Controller */,
-				95E39A641D50D40B00750BD7 /* View */,
-				95E39A621D50D3EA00750BD7 /* Model */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		95E1EF121D4F3BBE00C13F30 /* Main */ = {
@@ -397,35 +387,61 @@
 			path = ZUtilities;
 			sourceTree = "<group>";
 		};
-		95E39A621D50D3EA00750BD7 /* Model */ = {
+		95E39A8A1D54820000750BD7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				95E39A5C1D50D3E500750BD7 /* ZShopFood.h */,
-				95E39A5D1D50D3E500750BD7 /* ZShopFood.m */,
-				95E39A5E1D50D3E500750BD7 /* ZShopFoodCategory.h */,
-				95E39A5F1D50D3E500750BD7 /* ZShopFoodCategory.m */,
+				95E39A8B1D54820000750BD7 /* Shop */,
 			);
-			name = Model;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		95E39A631D50D3FA00750BD7 /* Controller */ = {
+		95E39A8B1D54820000750BD7 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				95E1EF141D4F3DDF00C13F30 /* ZShopViewController.h */,
-				95E1EF151D4F3DDF00C13F30 /* ZShopViewController.m */,
-				95E39A651D50D51400750BD7 /* ZShopFoodViewController.h */,
-				95E39A661D50D51400750BD7 /* ZShopFoodViewController.m */,
+				95E39A8C1D54820000750BD7 /* Comment */,
+				95E39A8D1D54820000750BD7 /* Food */,
+				95E39A921D54820000750BD7 /* Model */,
+				95E39A971D54820000750BD7 /* Seller */,
+				95E39A981D54820000750BD7 /* ZShopViewController.h */,
+				95E39A991D54820000750BD7 /* ZShopViewController.m */,
 			);
-			name = Controller;
+			path = Shop;
 			sourceTree = "<group>";
 		};
-		95E39A641D50D40B00750BD7 /* View */ = {
+		95E39A8C1D54820000750BD7 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
-				95E1EF1E1D4F757500C13F30 /* ZShopCategoryView.h */,
-				95E1EF1F1D4F757500C13F30 /* ZShopCategoryView.m */,
 			);
-			name = View;
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		95E39A8D1D54820000750BD7 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */,
+				95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */,
+				95E39A901D54820000750BD7 /* ZShopFoodViewController.h */,
+				95E39A911D54820000750BD7 /* ZShopFoodViewController.m */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		95E39A921D54820000750BD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95E39A931D54820000750BD7 /* ZShopFood.h */,
+				95E39A941D54820000750BD7 /* ZShopFood.m */,
+				95E39A951D54820000750BD7 /* ZShopFoodCategory.h */,
+				95E39A961D54820000750BD7 /* ZShopFoodCategory.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95E39A971D54820000750BD7 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Seller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,23 +518,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E39A601D50D3E500750BD7 /* ZShopFood.m in Sources */,
 				95E1EF7B1D4F772D00C13F30 /* SDWebImageDownloader.m in Sources */,
 				95E1EF721D4F772D00C13F30 /* NSArray+MASAdditions.m in Sources */,
 				95E39A6C1D50E1D200750BD7 /* NSObject+ZDescription.m in Sources */,
-				95E39A611D50D3E500750BD7 /* ZShopFoodCategory.m in Sources */,
+				95E39A9A1D54820000750BD7 /* ZShopCategoryView.m in Sources */,
 				95E1EF711D4F772D00C13F30 /* MASViewConstraint.m in Sources */,
 				95E1EF7E1D4F772D00C13F30 /* SDWebImagePrefetcher.m in Sources */,
 				95E1EF851D4F772D00C13F30 /* UIView+WebCacheOperation.m in Sources */,
 				95E1EF891D4F772D00C13F30 /* SVProgressHUD.m in Sources */,
-				95E1EF201D4F757500C13F30 /* ZShopCategoryView.m in Sources */,
 				95E1EF6E1D4F772D00C13F30 /* MASConstraintMaker.m in Sources */,
 				95E1EF811D4F772D00C13F30 /* UIImage+MultiFormat.m in Sources */,
 				95E1EF821D4F772D00C13F30 /* UIImage+WebP.m in Sources */,
+				95E39A9B1D54820000750BD7 /* ZShopFoodViewController.m in Sources */,
 				95E1EF741D4F772D00C13F30 /* View+MASAdditions.m in Sources */,
 				95E1EF8A1D4F772D00C13F30 /* SVRadialGradientLayer.m in Sources */,
 				95E1EE971D4F008800C13F30 /* ViewController.m in Sources */,
-				95E39A671D50D51400750BD7 /* ZShopFoodViewController.m in Sources */,
 				95E1EF841D4F772D00C13F30 /* UIImageView+WebCache.m in Sources */,
 				95E1EF6D1D4F772D00C13F30 /* MASConstraint.m in Sources */,
 				95E1EE941D4F008800C13F30 /* AppDelegate.m in Sources */,
@@ -532,12 +546,13 @@
 				95E1EE911D4F008800C13F30 /* main.m in Sources */,
 				95E1EF911D4F785B00C13F30 /* UIColor+ZUtilities.m in Sources */,
 				95E1EF1D1D4F419A00C13F30 /* ZBaseView.m in Sources */,
+				95E39A9D1D54820000750BD7 /* ZShopFoodCategory.m in Sources */,
+				95E39A9C1D54820000750BD7 /* ZShopFood.m in Sources */,
 				95E1EF7D1D4F772D00C13F30 /* SDWebImageManager.m in Sources */,
 				95E1EF861D4F772D00C13F30 /* SVIndefiniteAnimatedView.m in Sources */,
 				95E1EF7A1D4F772D00C13F30 /* SDWebImageDecoder.m in Sources */,
 				95E1EF7C1D4F772D00C13F30 /* SDWebImageDownloaderOperation.m in Sources */,
 				95E1EF751D4F772D00C13F30 /* ViewController+MASAdditions.m in Sources */,
-				95E1EF161D4F3DDF00C13F30 /* ZShopViewController.m in Sources */,
 				95E1EF761D4F772D00C13F30 /* MKAnnotationView+WebCache.m in Sources */,
 				95E1EF791D4F772D00C13F30 /* SDWebImageCompat.m in Sources */,
 				95E1EF7F1D4F772D00C13F30 /* UIButton+WebCache.m in Sources */,
@@ -547,6 +562,7 @@
 				95E1EF941D4F7F7D00C13F30 /* UIScreen+ZUtilities.m in Sources */,
 				95E1EF801D4F772D00C13F30 /* UIImage+GIF.m in Sources */,
 				95E1EF781D4F772D00C13F30 /* SDImageCache.m in Sources */,
+				95E39A9E1D54820000750BD7 /* ZShopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
