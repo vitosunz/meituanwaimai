@@ -16,7 +16,7 @@
 static NSString *CategoryCellReuseID = @"CategoryCellReuseID";
 static NSString *ListCellReuseID = @"ListCellReuseID";
 
-@interface ZShopFoodViewController () <UITableViewDataSource>
+@interface ZShopFoodViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) UITableView *foodCategoryView;
 @property (weak, nonatomic) UITableView *foodListView;
@@ -93,6 +93,19 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 如果选中 菜品类别, 刷新 商品列表
+    if (tableView == self.foodCategoryView) {
+        // 当前的IndexPath为选中 菜品分类的索引
+        // 选中第n个菜品分类, 则应该将该菜品分类的第一个滚动到TableView顶部
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
+        
+        // 让右侧的 foodListView 滚动
+        [self.foodListView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
+
 #pragma mark - 界面初始化
 
 - (void)zSetupUI
@@ -103,8 +116,8 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     [self.view addSubview:foodCategoryView];
     self.foodCategoryView = foodCategoryView;
     
-    // 菜品列表视图
-    UITableView *foodListView = [[UITableView alloc] init];
+    // 菜品列表视图, 分组样式
+    UITableView *foodListView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:foodListView];
     self.foodListView = foodListView;
     
@@ -126,6 +139,9 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     // 配置 数据源
     foodCategoryView.dataSource = self;
     foodListView.dataSource = self;
+    // 配置 代理
+    foodCategoryView.delegate = self;
+    foodListView.delegate = self;
 }
 
 #pragma mark - 数据加载
