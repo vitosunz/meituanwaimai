@@ -18,6 +18,6 @@
 /**
  *  当前选中标签按钮的索引
  */
-@property (assign, nonatomic) NSTimeInterval selectedIndex;
+@property (assign, nonatomic) NSUInteger selectedIndex;
 
 @end

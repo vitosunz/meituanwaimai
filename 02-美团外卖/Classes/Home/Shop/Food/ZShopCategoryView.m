@@ -20,6 +20,8 @@
  */
 @property (weak, nonatomic) UIButton *foodButton;
 
+@property (strong, nonatomic) NSArray <UIButton *> *buttons;
+
 @end
 
 @implementation ZShopCategoryView
@@ -82,13 +84,27 @@
     }
     
     self.foodButton = buttons[0];
+    self.buttons = [buttons copy];
+    
+    // 默认第一个按钮选中
+    self.foodButton.selected = YES;
+    _selectedIndex = 0;
 }
 
 #pragma mark - 按钮响应事件
 
 - (void)categoryButtonAction:(UIButton *)sender
 {
-    // 根据选中按钮的tag值来修改线条视图
+    // -------- 按钮选中状态修改 --------
+    if (sender.tag == self.selectedIndex) {
+        return;
+    }
+    // 选中按钮后, 按钮的状态更新, 非常常见
+    self.buttons[self.selectedIndex].selected = NO;
+    _selectedIndex = sender.tag;
+    self.buttons[self.selectedIndex].selected = YES;
+    
+    // -------- 根据选中按钮的tag值来修改线条视图 --------
     [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
         // 根据按钮的位置调整线条视图的x值
         make.centerX.equalTo(self.foodButton).offset(sender.tag * sender.bounds.size.width);
