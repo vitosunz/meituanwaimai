@@ -136,13 +136,17 @@
     }];
     
     // -------- 更新按钮的选中状态 --------
-    // 线的偏移量(最多偏移个按钮宽度) / 按钮宽度
-    NSUInteger index = (lineOffsetX / self.foodButton.bounds.size.width);
+    // 线的偏移量 / 按钮宽度
+    CGFloat temp = (lineOffsetX / self.foodButton.bounds.size.width);
+    NSUInteger index = temp;
+    NSLog(@"%f, %zd", temp, index);
     
-    // -------- 更新按钮状态 --------
-    self.buttons[self.selectedIndex].selected = NO;
-    self.selectedIndex = index;
-    self.buttons[self.selectedIndex].selected = YES;
+    if (self.selectedIndex != index) {
+        // -------- 更新按钮状态 --------
+        self.buttons[self.selectedIndex].selected = NO;
+        self.selectedIndex = index;
+        self.buttons[self.selectedIndex].selected = YES;
+    }
 }
 
 @end

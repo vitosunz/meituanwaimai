@@ -9,6 +9,7 @@
 #import "ZShopFoodViewController.h"
 #import "ZShopFoodCategory.h"
 #import "ZShopFood.h"
+#import "ZShopFoodCategoryCell.h"
 
 /**
  *  可重用标识
@@ -111,10 +112,13 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
 - (void)zSetupUI
 {
     // -------- 添加两个TableView --------
-    // 菜品分类视图
+    // 菜品分类视图, 默认样式
     UITableView *foodCategoryView = [[UITableView alloc] init];
     [self.view addSubview:foodCategoryView];
     self.foodCategoryView = foodCategoryView;
+    
+    // 配置行高
+    foodCategoryView.rowHeight = 55;
     
     // 菜品列表视图, 分组样式
     UITableView *foodListView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -134,7 +138,7 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     
     // -------- 配置TableView --------
     // 注册 原型Cell, 此处演示比较简单, 并没有自定义Cell
-    [foodCategoryView registerClass:[UITableViewCell class] forCellReuseIdentifier:CategoryCellReuseID];
+    [foodCategoryView registerClass:[ZShopFoodCategoryCell class] forCellReuseIdentifier:CategoryCellReuseID];
     [foodListView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
     // 配置 数据源
     foodCategoryView.dataSource = self;
