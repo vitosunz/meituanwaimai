@@ -9,3 +9,4 @@
 #import "UIView+ZUtilities.h"
 #import "UIScreen+ZUtilities.h"
 #import "UIButton+ZUtilities.h"
+#import "UILabel+ZUtilities.h"

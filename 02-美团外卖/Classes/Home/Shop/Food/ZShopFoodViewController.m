@@ -10,6 +10,7 @@
 #import "ZShopFoodCategory.h"
 #import "ZShopFood.h"
 #import "ZShopFoodCategoryCell.h"
+#import "ZShopFoodHeaderView.h"
 
 /**
  *  可重用标识
@@ -116,17 +117,19 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     
     // -------- foodListView, 菜品列表 --------
     // 获取headerView
-    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ListHeaderReuseID];
+    ZShopFoodHeaderView *headerView = (ZShopFoodHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:ListHeaderReuseID];
     
     // 配置
-    // 控制台输出:  Setting the background color on UITableViewHeaderFooterView has been deprecated. Please use contentView.backgroundColor instead. | backgroundColor属性已经废弃, 使用contentView.backgroundColor替代
-//    headerView.backgroundColor = [UIColor redColor];
-    headerView.contentView.backgroundColor = [UIColor redColor];
+//    // 控制台输出:  Setting the background color on UITableViewHeaderFooterView has been deprecated. Please use contentView.backgroundColor instead. | backgroundColor属性已经废弃, 使用contentView.backgroundColor替代
+////    headerView.backgroundColor = [UIColor redColor];
+//    headerView.contentView.backgroundColor = [UIColor redColor];
+//    
+//    // 设置headerView的标题为菜品分类名
+//    headerView.textLabel.text = _foodCategorys[section].name;
+//    // 配置字体
+//    headerView.textLabel.font = [UIFont systemFontOfSize:12];
     
-    // 设置headerView的标题为菜品分类名
-    headerView.textLabel.text = _foodCategorys[section].name;
-    // 配置字体
-    headerView.textLabel.font = [UIFont systemFontOfSize:12];
+    headerView.titleLabel.text = _foodCategorys[section].name;
     
     return headerView;
 }
@@ -143,9 +146,11 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     
     // 配置行高
     foodCategoryView.rowHeight = 55;
+    // 取消分隔线
+    foodCategoryView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 菜品列表视图, 分组样式
-    UITableView *foodListView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    UITableView *foodListView = [[UITableView alloc] init];
     [self.view addSubview:foodListView];
     self.foodListView = foodListView;
     
@@ -165,7 +170,7 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     [foodCategoryView registerClass:[ZShopFoodCategoryCell class] forCellReuseIdentifier:CategoryCellReuseID];
     [foodListView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
     // 注册 菜品列表的HeaderView
-    [foodListView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:ListHeaderReuseID];
+    [foodListView registerClass:[ZShopFoodHeaderView class] forHeaderFooterViewReuseIdentifier:ListHeaderReuseID];
     
     // 配置 数据源
     foodCategoryView.dataSource = self;

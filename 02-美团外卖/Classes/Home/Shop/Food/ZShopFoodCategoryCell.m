@@ -20,25 +20,24 @@
         // 设置多行文本为0, 只要空间足够就会继续显示
         // 设置为2, 如果文本超过2行, 则显示 ....
         self.textLabel.numberOfLines = 2;
-        
-        // -------- 添加黄色视图 --------
-        UIView *lineView = [[UIView alloc] init];
-        lineView.backgroundColor = [UIColor zColorWithHex:0xFFD900];
-        [self.contentView addSubview:lineView];
-        
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.centerY.equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(4, 33));
-        }];
 
         // -------- 设置选中样式 --------
         UIView *bgView = [[UIView alloc] init];
         bgView.backgroundColor = [UIColor whiteColor];
+        // -------- 添加黄色视图 --------
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor = [UIColor zColorWithHex:0xFFD900];
+        [bgView addSubview:lineView];
+        
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.centerY.equalTo(bgView);
+            make.size.mas_equalTo(CGSizeMake(4, 33));
+        }];
         // 设置选中状态背景色
         self.selectedBackgroundView = bgView;
         
         // 设置默认状态背景色
-        self.contentView.backgroundColor = [UIColor zColorWithHex:0xc8c8c8];
+        self.contentView.backgroundColor = [UIColor zColorWithHex:0xe8e8e8];
         
         // -------- 添加分割线 --------
         UIView *separatorLine = [[UIView alloc] init];

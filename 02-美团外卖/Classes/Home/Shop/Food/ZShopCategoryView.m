@@ -139,7 +139,6 @@
     // 线的偏移量 / 按钮宽度
     CGFloat temp = (lineOffsetX / self.foodButton.bounds.size.width);
     NSUInteger index = temp;
-    NSLog(@"%f, %zd", temp, index);
     
     if (self.selectedIndex != index) {
         // -------- 更新按钮状态 --------

@@ -108,7 +108,7 @@
 - (UIScrollView *)setupContentView
 {
     UIScrollView *contentView = [[UIScrollView alloc] init];
-    contentView.backgroundColor = [UIColor orangeColor];
+//    contentView.backgroundColor = [UIColor orangeColor];
     // 开启页面支持
     contentView.pagingEnabled = YES;
     // 关闭弹簧效果
@@ -118,7 +118,7 @@
     
     // -------- 添加尺寸视图, 将后继视图添加到该视图上, 方便布局 --------
     UIView *sizeView = [[UIView alloc] init];
-    sizeView.backgroundColor = [UIColor blueColor];
+//    sizeView.backgroundColor = [UIColor blueColor];
     [contentView addSubview:sizeView];
     
     // 添加约束
