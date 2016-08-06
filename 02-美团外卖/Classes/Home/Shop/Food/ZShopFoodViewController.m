@@ -16,6 +16,7 @@
  */
 static NSString *CategoryCellReuseID = @"CategoryCellReuseID";
 static NSString *ListCellReuseID = @"ListCellReuseID";
+static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 
 @interface ZShopFoodViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -107,6 +108,24 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.foodCategoryView) {
+        return nil;
+    }
+    
+    // -------- foodListView, 菜品列表 --------
+    // 获取headerView
+    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ListHeaderReuseID];
+    
+    // 配置
+    // backgroundColor属性已经废弃, 使用下面的方式替代
+//    headerView.backgroundColor = [UIColor redColor];
+    headerView.contentView.backgroundColor = [UIColor redColor];
+    
+    return headerView;
+}
+
 #pragma mark - 界面初始化
 
 - (void)zSetupUI
@@ -137,15 +156,22 @@ static NSString *ListCellReuseID = @"ListCellReuseID";
     }];
     
     // -------- 配置TableView --------
-    // 注册 原型Cell, 此处演示比较简单, 并没有自定义Cell
+    // 注册 原型Cell
     [foodCategoryView registerClass:[ZShopFoodCategoryCell class] forCellReuseIdentifier:CategoryCellReuseID];
     [foodListView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
+    // 注册 菜品列表的HeaderView
+    [foodListView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:ListHeaderReuseID];
+    
     // 配置 数据源
     foodCategoryView.dataSource = self;
     foodListView.dataSource = self;
     // 配置 代理
     foodCategoryView.delegate = self;
     foodListView.delegate = self;
+    
+    // -------- 配置HeaderView的高度 --------
+    // 设置Header高度, 如果要自定义Header视图, 一定要设置行高, 否则不走代理方法
+    foodListView.sectionHeaderHeight = 23;
 }
 
 #pragma mark - 数据加载
