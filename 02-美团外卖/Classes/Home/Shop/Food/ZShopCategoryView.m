@@ -101,7 +101,7 @@
     }
     // 选中按钮后, 按钮的状态更新, 非常常见
     self.buttons[self.selectedIndex].selected = NO;
-    _selectedIndex = sender.tag;
+    self.selectedIndex = sender.tag;
     self.buttons[self.selectedIndex].selected = YES;
     
     // -------- 根据选中按钮的tag值来修改线条视图 --------
@@ -134,6 +134,15 @@
     [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.foodButton).offset(_lineOffsetX);
     }];
+    
+    // -------- 更新按钮的选中状态 --------
+    // 线的偏移量(最多偏移个按钮宽度) / 按钮宽度
+    NSUInteger index = (lineOffsetX / self.foodButton.bounds.size.width);
+    
+    // -------- 更新按钮状态 --------
+    self.buttons[self.selectedIndex].selected = NO;
+    self.selectedIndex = index;
+    self.buttons[self.selectedIndex].selected = YES;
 }
 
 @end
