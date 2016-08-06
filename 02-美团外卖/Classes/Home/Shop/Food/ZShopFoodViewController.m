@@ -39,6 +39,10 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     
     // 加载数据
     [self loadData];
+    
+    // 默认选中菜品类别第一行
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -132,6 +136,22 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     headerView.titleLabel.text = _foodCategorys[section].name;
     
     return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (tableView == self.foodCategoryView) {
+        return;
+    }
+    
+    // -------- 菜品列表视图, 滚动后, 菜品类别要更新对应的选择 --------
+    // 菜品列表中的 section, 对应是分类表格的 row
+    NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.section inSection:0];
+    
+    // scrollAtIndexPath 只会将该行移动到指定位置上, 并不会选中
+//    [self.foodCategoryView scrollToRowAtIndexPath:_NEWINDEX atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    [self.foodCategoryView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
 }
 
 #pragma mark - 界面初始化

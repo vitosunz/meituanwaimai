@@ -10,6 +10,6 @@
 
 @interface ZShopFoodHeaderView : UITableViewHeaderFooterView
 
-@property (weak, nonatomic) UILabel *titleLabel;
+@property (weak, nonatomic, readonly) UILabel *titleLabel;
 
 @end

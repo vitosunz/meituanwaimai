@@ -10,6 +10,8 @@
 
 @implementation ZShopFoodHeaderView
 
+@synthesize titleLabel = _titleLabel;
+
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithReuseIdentifier:reuseIdentifier];
