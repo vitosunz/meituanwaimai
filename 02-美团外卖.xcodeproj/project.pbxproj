@@ -404,12 +404,12 @@
 		95E39A8B1D54820000750BD7 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				95E39A981D54820000750BD7 /* ZShopViewController.h */,
+				95E39A991D54820000750BD7 /* ZShopViewController.m */,
 				95E39A8C1D54820000750BD7 /* Comment (评价) */,
 				95E39A8D1D54820000750BD7 /* Food (点菜) */,
 				95E39A921D54820000750BD7 /* Model */,
 				95E39A971D54820000750BD7 /* Seller (商家) */,
-				95E39A981D54820000750BD7 /* ZShopViewController.h */,
-				95E39A991D54820000750BD7 /* ZShopViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -427,10 +427,10 @@
 		95E39A8D1D54820000750BD7 /* Food (点菜) */ = {
 			isa = PBXGroup;
 			children = (
-				95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */,
-				95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */,
 				95E39A901D54820000750BD7 /* ZShopFoodViewController.h */,
 				95E39A911D54820000750BD7 /* ZShopFoodViewController.m */,
+				95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */,
+				95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */,
 			);
 			name = "Food (点菜)";
 			path = Food;

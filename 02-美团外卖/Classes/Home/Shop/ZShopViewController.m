@@ -7,13 +7,15 @@
 //
 
 #import "ZShopViewController.h"
-#import "ZShopFoodViewController.h"
 #import "ZShopCategoryView.h"
+#import "ZShopFoodViewController.h"
+#import "ZShopSellerViewController.h"
+#import "ZShopCommentViewController.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
 
-@interface ZShopViewController ()
+@interface ZShopViewController () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) UIView *headerView;
 
@@ -80,6 +82,8 @@
     // -------- 添加平滑手势 --------
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureAction:)];
     [self.view addGestureRecognizer:panGesture];
+    // 配置手势代理, 通过代理方法让两个手势共存
+    panGesture.delegate = self;
 }
 
 // 加载底部的内容视图
@@ -89,6 +93,8 @@
     contentView.backgroundColor = [UIColor orangeColor];
     // 开启页面支持
     contentView.pagingEnabled = YES;
+    // 关闭弹簧效果
+    contentView.bounces = NO;
     
     // -------- 添加尺寸视图, 将后继视图添加到该视图上, 方便布局 --------
     UIView *sizeView = [[UIView alloc] init];
@@ -104,15 +110,41 @@
         make.width.equalTo(contentView).multipliedBy(3);
     }];
     
-    // -------- 添加点菜控制器 --------
-    ZShopFoodViewController *foodVC = [[ZShopFoodViewController alloc] init];
-    // 添加控制器视图到sizeView中
-    [self zAddChildConrollerView:foodVC intoView:sizeView];
+    // -------- 三个子控制器 --------
+    NSArray *controllerNames = @[
+                                 @"ZShopFoodViewController",
+                                 @"ZShopSellerViewController",
+                                 @"ZShopCommentViewController"
+                                 ];
+ 
+    NSMutableArray <UIViewController *> *zChildController = [NSMutableArray arrayWithCapacity:controllerNames.count];
+    for (NSString *name in controllerNames) {
+        // 实例化控制器
+        Class class = NSClassFromString(name);
+        UIViewController *vc = [[class alloc] init];
+        
+        // 断言, 使用名字转换容易出错
+        NSAssert([vc isKindOfClass:UIViewController.class], @"不能被转换成控制器的名字");
+        
+        // 添加控制器视图到sizeView中
+        [self zAddChildConrollerView:vc intoView:sizeView];
+        [zChildController addObject:vc];
+    }
     
     // 修改子控制器的视图, 适应sizeView的大小
-    [foodVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [zChildController[0].view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(sizeView);
         make.width.equalTo(contentView);
+    }];
+    
+    [zChildController[1].view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.top.equalTo(zChildController[0].view);
+        make.left.equalTo(zChildController[0].view.mas_right);
+    }];
+    
+    [zChildController[2].view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.top.equalTo(zChildController[1].view);
+        make.left.equalTo(zChildController[1].view.mas_right);
     }];
     
     return contentView;
@@ -158,6 +190,13 @@
         return;
     }
     
+    // -------- 判断水平方向与竖起方向的移动距离 --------
+    // 在手势处理中, 非常常见的判断
+    if (ABS(translation.x) > ABS(translation.y)) {
+        // 水平方向的拖拽, 竖直方向的事件不要响应
+        return;
+    }
+    
     // -------- 根据高度, 修改导航栏的透明度 --------
     // 1 - (headerView当前呈现的高度 / headerView能呈现的最大高度)
     CGFloat alpha = 1- (newHeight - minHeight) / (HeaderViewHeight - minHeight);
@@ -181,6 +220,16 @@
         default:
             break;
     }
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+/**
+ * 是否允许多个手势同时识别, YES表示允许.
+ */
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 @end
