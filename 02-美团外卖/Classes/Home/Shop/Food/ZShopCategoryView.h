@@ -6,8 +6,18 @@
 //  Copyright © 2016 itHeima. All rights reserved.
 //
 
-#import "ZBaseView.h"
+#import "ZBaseControl.h"
 
-@interface ZShopCategoryView : ZBaseView
+@interface ZShopCategoryView : ZBaseControl
+
+/**
+ *  线条的水平位移偏移量
+ */
+@property (assign, nonatomic)  CGFloat lineOffsetX;
+
+/**
+ *  当前选中标签按钮的索引
+ */
+@property (assign, nonatomic) NSTimeInterval selectedIndex;
 
 @end

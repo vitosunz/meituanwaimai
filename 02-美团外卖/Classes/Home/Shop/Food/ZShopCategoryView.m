@@ -98,6 +98,26 @@
         // 重新布局子视图
         [self layoutIfNeeded];
     }];
+    
+    // -------- 选中标签按钮后, 触发对应的事件 --------
+    
+    // 记录选中索引
+    _selectedIndex = sender.tag;
+    
+    // 触发事件
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+#pragma mark - Getter & Setter
+
+- (void)setLineOffsetX:(CGFloat)lineOffsetX
+{
+    _lineOffsetX = lineOffsetX;
+    
+    // 根据偏移量调整线的位置
+    [self.lineView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.foodButton).offset(_lineOffsetX);
+    }];
 }
 
 @end

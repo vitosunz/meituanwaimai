@@ -60,6 +60,7 @@
 		95E39A9E1D54820000750BD7 /* ZShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39A991D54820000750BD7 /* ZShopViewController.m */; };
 		95E39AA11D5482D700750BD7 /* ZShopCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39AA01D5482D700750BD7 /* ZShopCommentViewController.m */; };
 		95E39AA41D5482E400750BD7 /* ZShopSellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39AA31D5482E400750BD7 /* ZShopSellerViewController.m */; };
+		95E39AA71D55A12700750BD7 /* ZBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E39AA61D55A12700750BD7 /* ZBaseControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		95E39AA01D5482D700750BD7 /* ZShopCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopCommentViewController.m; sourceTree = "<group>"; };
 		95E39AA21D5482E400750BD7 /* ZShopSellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopSellerViewController.h; sourceTree = "<group>"; };
 		95E39AA31D5482E400750BD7 /* ZShopSellerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopSellerViewController.m; sourceTree = "<group>"; };
+		95E39AA51D55A12700750BD7 /* ZBaseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBaseControl.h; sourceTree = "<group>"; };
+		95E39AA61D55A12700750BD7 /* ZBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBaseControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,8 @@
 		95E1EF171D4F416000C13F30 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				95E39AA51D55A12700750BD7 /* ZBaseControl.h */,
+				95E39AA61D55A12700750BD7 /* ZBaseControl.m */,
 				95E1EF181D4F418F00C13F30 /* ZBaseViewController.h */,
 				95E1EF191D4F418F00C13F30 /* ZBaseViewController.m */,
 				95E1EF1B1D4F419A00C13F30 /* ZBaseView.h */,
@@ -546,6 +551,7 @@
 				95E39A9B1D54820000750BD7 /* ZShopFoodViewController.m in Sources */,
 				95E1EF741D4F772D00C13F30 /* View+MASAdditions.m in Sources */,
 				95E1EF8A1D4F772D00C13F30 /* SVRadialGradientLayer.m in Sources */,
+				95E39AA71D55A12700750BD7 /* ZBaseControl.m in Sources */,
 				95E1EE971D4F008800C13F30 /* ViewController.m in Sources */,
 				95E1EF841D4F772D00C13F30 /* UIImageView+WebCache.m in Sources */,
 				95E1EF6D1D4F772D00C13F30 /* MASConstraint.m in Sources */,

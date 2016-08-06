@@ -15,9 +15,22 @@
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
 
-@interface ZShopViewController () <UIGestureRecognizerDelegate>
+@interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
+/**
+ *  顶部视图
+ */
 @property (weak, nonatomic) UIView *headerView;
+
+/**
+ *  中间分类视图
+ */
+@property (weak, nonatomic) ZShopCategoryView *categoryView;
+
+/**
+ *  底部内容视图
+ */
+@property (weak, nonatomic) UIScrollView *contentView;
 
 @end
 
@@ -62,6 +75,7 @@
     ZShopCategoryView *categoryView = [[ZShopCategoryView alloc] init];
     categoryView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:categoryView];
+    self.categoryView = categoryView;
     
     CGFloat categoryHeight = 37;
     [categoryView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,6 +87,7 @@
     // -------- 3. 设置底部的内容视图(UIScrollView) --------
     UIScrollView *contentView = [self setupContentView];
     [self.view addSubview:contentView];
+    self.contentView = contentView;
     
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
@@ -84,6 +99,9 @@
     [self.view addGestureRecognizer:panGesture];
     // 配置手势代理, 通过代理方法让两个手势共存
     panGesture.delegate = self;
+    
+    // -------- 添加监听方法, 监听categoyrView的值改变 --------
+    [categoryView addTarget:self action:@selector(categoryValueChangeAction:) forControlEvents:UIControlEventValueChanged];
 }
 
 // 加载底部的内容视图
@@ -95,6 +113,8 @@
     contentView.pagingEnabled = YES;
     // 关闭弹簧效果
     contentView.bounces = NO;
+    // 配置代理
+    contentView.delegate = self;
     
     // -------- 添加尺寸视图, 将后继视图添加到该视图上, 方便布局 --------
     UIView *sizeView = [[UIView alloc] init];
@@ -222,6 +242,21 @@
     }
 }
 
+#pragma mark - 控件的事件处理
+
+- (void)categoryValueChangeAction:(ZShopCategoryView *)categoryView
+{
+    // -------- 获取categoryView的选中索引, 更新contentView显示的内容 --------
+    CGFloat offsetX = categoryView.selectedIndex * self.contentView.bounds.size.width;
+    
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.contentView.contentOffset = CGPointMake(offsetX, 0);
+//    }];
+    
+    // 带有动画效果的偏移量调整
+    [self.contentView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+}
+
 #pragma mark - UIGestureRecognizerDelegate
 
 /**
@@ -230,6 +265,18 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     return YES;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 判断是否使用手指拖动 scrollView, 在开发中非常常见的技巧
+    if (scrollView.isDragging || scrollView.decelerating || scrollView.isTracking) {
+        // 将内容视图的偏移量传递给分类视图
+        // 对应的比例关系是 1 : 3, contentView的contentSize是三倍大小
+        self.categoryView.lineOffsetX = scrollView.contentOffset.x / 3;
+    }
 }
 
 @end
