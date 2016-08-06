@@ -119,9 +119,14 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ListHeaderReuseID];
     
     // 配置
-    // backgroundColor属性已经废弃, 使用下面的方式替代
+    // 控制台输出:  Setting the background color on UITableViewHeaderFooterView has been deprecated. Please use contentView.backgroundColor instead. | backgroundColor属性已经废弃, 使用contentView.backgroundColor替代
 //    headerView.backgroundColor = [UIColor redColor];
     headerView.contentView.backgroundColor = [UIColor redColor];
+    
+    // 设置headerView的标题为菜品分类名
+    headerView.textLabel.text = _foodCategorys[section].name;
+    // 配置字体
+    headerView.textLabel.font = [UIFont systemFontOfSize:12];
     
     return headerView;
 }
