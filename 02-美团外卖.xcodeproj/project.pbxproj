@@ -449,8 +449,6 @@
 				95E39AA81D561E3200750BD7 /* Views */,
 				95E39A901D54820000750BD7 /* ZShopFoodViewController.h */,
 				95E39A911D54820000750BD7 /* ZShopFoodViewController.m */,
-				95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */,
-				95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */,
 			);
 			name = "Food (点菜)";
 			path = Food;
@@ -480,6 +478,8 @@
 		95E39AA81D561E3200750BD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				95E39A8E1D54820000750BD7 /* ZShopCategoryView.h */,
+				95E39A8F1D54820000750BD7 /* ZShopCategoryView.m */,
 				95E39AAC1D561ECA00750BD7 /* ZShopFoodCategoryCell.h */,
 				95E39AAD1D561ECA00750BD7 /* ZShopFoodCategoryCell.m */,
 				95D862F91D5638E200C6EB14 /* ZShopFoodHeaderView.h */,

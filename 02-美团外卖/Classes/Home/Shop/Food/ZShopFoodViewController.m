@@ -173,10 +173,14 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     // 取消分隔线
     foodCategoryView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    // 菜品列表视图, 分组样式
+    // 菜品列表视图
     UITableView *foodListView = [[UITableView alloc] init];
     [self.view addSubview:foodListView];
     self.foodListView = foodListView;
+    
+#warning 临时设置行高
+    // 配置行高
+    foodListView.rowHeight = 120;
     
     // -------- 添加约束 --------
     [foodCategoryView mas_makeConstraints:^(MASConstraintMaker *make) {

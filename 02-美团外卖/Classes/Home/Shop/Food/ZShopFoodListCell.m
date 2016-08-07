@@ -100,12 +100,14 @@
     
     // -------- 描述 --------
     UILabel *descLabel = [UILabel zLabelWithText:@"吃了就会爱上班主任" textColor:[UIColor zColorWithHex:0x7e7e7e] fontSize:11];
+    descLabel.numberOfLines = 0;
     [self.contentView addSubview:descLabel];
     self.descLabel = descLabel;
     
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(iconView);
         make.top.equalTo(iconView.mas_bottom).offset(20);
+        make.right.equalTo(self.contentView.mas_right).offset(-margin);
     }];
 }
 
@@ -121,6 +123,7 @@
     _likeLabel.text = @(food.praise_num).description;
     _priceLabel.text = [NSString stringWithFormat:@"¥ %.02f", food.min_price];
     _descLabel.text = food.desc;
+    ZLog(@"%@", food.desc);
 }
 
 @end
