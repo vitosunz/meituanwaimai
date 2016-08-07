@@ -124,6 +124,23 @@
     _priceLabel.text = [NSString stringWithFormat:@"¥ %.02f", food.min_price];
     _descLabel.text = food.desc;
     ZLog(@"%@", food.desc);
+    
+    // 判断是否有描述,
+    CGFloat margin = 10;
+    if (food.desc.length > 0) {
+        // 有描述, contentView参照描述标签的底部
+        [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self);
+            make.bottom.equalTo(_descLabel.mas_bottom).offset(margin);
+        }];
+    } else {
+        // 无描述, contentView参照价格标签的底部
+        [self.contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self);
+            make.bottom.equalTo(_priceLabel.mas_bottom).offset(margin);
+        }];
+    }
+    
 }
 
 @end

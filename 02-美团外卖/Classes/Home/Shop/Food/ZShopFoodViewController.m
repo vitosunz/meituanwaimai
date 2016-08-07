@@ -178,9 +178,15 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     [self.view addSubview:foodListView];
     self.foodListView = foodListView;
     
-#warning 临时设置行高
-    // 配置行高
-    foodListView.rowHeight = 120;
+    // -------- 行高配置 --------
+//#warning 临时设置行高
+//    // 配置行高
+//    foodListView.rowHeight = 120;
+
+    // 设置预估行高
+    foodListView.estimatedRowHeight = 120;
+    // 自动规划计算行高  (使用AutoLayout布局Cell才有效)
+    foodListView.rowHeight = UITableViewAutomaticDimension;
     
     // -------- 添加约束 --------
     [foodCategoryView mas_makeConstraints:^(MASConstraintMaker *make) {
