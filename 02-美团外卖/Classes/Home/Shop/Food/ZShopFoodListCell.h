@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZShopFood;
 
 @interface ZShopFoodListCell : UITableViewCell
+
+/* 菜品模型 */
+@property (strong, nonatomic) ZShopFood *food;
 
 @end

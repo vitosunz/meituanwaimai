@@ -95,8 +95,8 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
         // 获取菜品分类模型中spus属性中indexPath所对应菜品模型
         ZShopFood *food = foodCategory.spus[indexPath.row];
         
-#warning 设置Cell的内容
-//        cell.textLabel.text = food.name;
+        // 赋值数据模型
+        cell.food = food;
         
         return cell;
     }
