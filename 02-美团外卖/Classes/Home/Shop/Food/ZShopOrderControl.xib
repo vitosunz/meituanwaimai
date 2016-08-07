@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZShopOrderControl">
+            <rect key="frame" x="0.0" y="0.0" width="87" height="27"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsu-hT-u72" userLabel="Increase">
+                    <rect key="frame" x="60" y="0.0" width="27" height="27"/>
+                    <state key="normal" image="icon_food_increase_small"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-dO-PNP" userLabel="Decrease">
+                    <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
+                    <state key="normal" image="icon_food_decrease_small"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-nZ-hLZ">
+                    <rect key="frame" x="35" y="5.5" width="17" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Wsu-hT-u72" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C3V-6G-Pvc"/>
+                <constraint firstItem="Mh5-nZ-hLZ" firstAttribute="leading" secondItem="TmS-dO-PNP" secondAttribute="trailing" constant="8" id="IY4-K0-hIE"/>
+                <constraint firstItem="Wsu-hT-u72" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LVN-xK-Ssw"/>
+                <constraint firstItem="Wsu-hT-u72" firstAttribute="leading" secondItem="Mh5-nZ-hLZ" secondAttribute="trailing" id="RmC-L4-0HL"/>
+                <constraint firstItem="Mh5-nZ-hLZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="USi-0q-2BP"/>
+                <constraint firstItem="TmS-dO-PNP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Z9e-9r-rSs"/>
+                <constraint firstItem="TmS-dO-PNP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="djS-AS-Qxp"/>
+                <constraint firstAttribute="trailing" secondItem="Wsu-hT-u72" secondAttribute="trailing" id="yNW-ap-6rj"/>
+                <constraint firstItem="Wsu-hT-u72" firstAttribute="leading" secondItem="Mh5-nZ-hLZ" secondAttribute="trailing" constant="8" id="zCx-6v-mes"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="RmC-L4-0HL"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="303.5" y="368.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_food_decrease_small" width="27" height="27"/>
+        <image name="icon_food_increase_small" width="27" height="27"/>
+    </resources>
+</document>

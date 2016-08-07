@@ -9,6 +9,7 @@
 #import "ZShopFoodListCell.h"
 #import "ZShopFood.h"
 #import "UIImageView+WebCache.h"
+#import "ZShopOrderControl.h"
 
 @interface ZShopFoodListCell ()
 
@@ -112,6 +113,19 @@
         make.top.equalTo(iconView.mas_bottom).offset(20);
         make.right.equalTo(self.contentView.mas_right).offset(-margin);
     }];
+    
+    // -------- 添加操作控件 --------
+    ZShopOrderControl *actionControl = [ZShopOrderControl shopOrderControl];
+    [self.contentView addSubview:actionControl];
+    
+    [actionControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.iconView);
+        make.right.equalTo(self.contentView).offset(-margin);
+        
+        // Xib控件的添加自动布局时, 注意要设置size. 否则自动布局很可能改变其size, 导致显示效果不佳
+        // 通过Xib实例化的控件, 其size就是Xib中定义的
+        make.size.mas_equalTo(actionControl.bounds.size);
+    }];
 }
 
 #pragma mark - Getter & Setter
@@ -137,7 +151,7 @@
     // 使用SDWebImage框架设置URL图像
     [self.iconView sd_setImageWithURL:url];
     
-    // 判断是否有描述, 根据描述重新标记约束
+    // -------- 判断是否有描述, 根据描述重新标记约束 --------
     CGFloat margin = 10;
     if (food.desc.length > 0) {
         // 有描述, contentView参照描述标签的底部
