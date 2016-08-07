@@ -11,6 +11,7 @@
 #import "ZShopFood.h"
 #import "ZShopFoodCategoryCell.h"
 #import "ZShopFoodHeaderView.h"
+#import "ZShopFoodListCell.h"
 
 /**
  *  可重用标识
@@ -76,28 +77,31 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
-    
     if (tableView == self.foodCategoryView)
     {
         // 获取注册的原型Cell
-        cell = [tableView dequeueReusableCellWithIdentifier:CategoryCellReuseID];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CategoryCellReuseID];
         cell.textLabel.text = _foodCategorys[indexPath.row].name;
+        
+        return cell;
     }
     else if (tableView == self.foodListView)
     {
         // 获取注册的原型Cell
-        cell = [tableView dequeueReusableCellWithIdentifier:ListCellReuseID];
+        ZShopFoodListCell *cell = [tableView dequeueReusableCellWithIdentifier:ListCellReuseID];
         
         // 获取菜品分类的模型
         ZShopFoodCategory *foodCategory = _foodCategorys[indexPath.section];
         // 获取菜品分类模型中spus属性中indexPath所对应菜品模型
         ZShopFood *food = foodCategory.spus[indexPath.row];
         
-        cell.textLabel.text = food.name;
+#warning 设置Cell的内容
+//        cell.textLabel.text = food.name;
+        
+        return cell;
     }
     
-    return cell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,7 +192,7 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     // -------- 配置TableView --------
     // 注册 原型Cell
     [foodCategoryView registerClass:[ZShopFoodCategoryCell class] forCellReuseIdentifier:CategoryCellReuseID];
-    [foodListView registerClass:[UITableViewCell class] forCellReuseIdentifier:ListCellReuseID];
+    [foodListView registerClass:[ZShopFoodListCell class] forCellReuseIdentifier:ListCellReuseID];
     // 注册 菜品列表的HeaderView
     [foodListView registerClass:[ZShopFoodHeaderView class] forHeaderFooterViewReuseIdentifier:ListHeaderReuseID];
     

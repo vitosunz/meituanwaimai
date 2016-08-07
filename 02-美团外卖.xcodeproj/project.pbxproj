@@ -10,6 +10,7 @@
 		95CD89F91D4F8E6100BD16AA /* UIButton+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD89F81D4F8E6100BD16AA /* UIButton+ZUtilities.m */; };
 		95D862FB1D5638E200C6EB14 /* ZShopFoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D862FA1D5638E200C6EB14 /* ZShopFoodHeaderView.m */; };
 		95D862FE1D563B5E00C6EB14 /* UILabel+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D862FD1D563B5E00C6EB14 /* UILabel+ZUtilities.m */; };
+		95D863011D56E83300C6EB14 /* ZShopFoodListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D863001D56E83300C6EB14 /* ZShopFoodListCell.m */; };
 		95E1EE911D4F008800C13F30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EE901D4F008800C13F30 /* main.m */; };
 		95E1EE941D4F008800C13F30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EE931D4F008800C13F30 /* AppDelegate.m */; };
 		95E1EE971D4F008800C13F30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E1EE961D4F008800C13F30 /* ViewController.m */; };
@@ -73,6 +74,8 @@
 		95D862FA1D5638E200C6EB14 /* ZShopFoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodHeaderView.m; sourceTree = "<group>"; };
 		95D862FC1D563B5E00C6EB14 /* UILabel+ZUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZUtilities.h"; sourceTree = "<group>"; };
 		95D862FD1D563B5E00C6EB14 /* UILabel+ZUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZUtilities.m"; sourceTree = "<group>"; };
+		95D862FF1D56E83300C6EB14 /* ZShopFoodListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodListCell.h; sourceTree = "<group>"; };
+		95D863001D56E83300C6EB14 /* ZShopFoodListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodListCell.m; sourceTree = "<group>"; };
 		95E1EE8C1D4F008800C13F30 /* 02-美团外卖.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "02-美团外卖.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E1EE901D4F008800C13F30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95E1EE921D4F008800C13F30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -481,6 +484,8 @@
 				95E39AAD1D561ECA00750BD7 /* ZShopFoodCategoryCell.m */,
 				95D862F91D5638E200C6EB14 /* ZShopFoodHeaderView.h */,
 				95D862FA1D5638E200C6EB14 /* ZShopFoodHeaderView.m */,
+				95D862FF1D56E83300C6EB14 /* ZShopFoodListCell.h */,
+				95D863001D56E83300C6EB14 /* ZShopFoodListCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				95E1EF771D4F772D00C13F30 /* NSData+ImageContentType.m in Sources */,
 				95E1EE911D4F008800C13F30 /* main.m in Sources */,
 				95E1EF911D4F785B00C13F30 /* UIColor+ZUtilities.m in Sources */,
+				95D863011D56E83300C6EB14 /* ZShopFoodListCell.m in Sources */,
 				95E1EF1D1D4F419A00C13F30 /* ZBaseView.m in Sources */,
 				95E39A9D1D54820000750BD7 /* ZShopFoodCategory.m in Sources */,
 				95E39A9C1D54820000750BD7 /* ZShopFood.m in Sources */,
