@@ -8,6 +8,7 @@
 
 #import "ZShopFoodListCell.h"
 #import "ZShopFood.h"
+#import "UIImageView+WebCache.h"
 
 @interface ZShopFoodListCell ()
 
@@ -46,6 +47,8 @@
     // 设置圆角
     iconView.layer.cornerRadius = 4;
     iconView.layer.masksToBounds = YES;
+    // 设置图片拉伸模式
+    iconView.contentMode = UIViewContentModeScaleAspectFill;
     
     // 约束
     CGFloat margin = 10;
@@ -125,7 +128,16 @@
     _descLabel.text = food.desc;
     ZLog(@"%@", food.desc);
     
-    // 判断是否有描述,
+    // -------- 加载网络图片并显示出来 --------
+    ZLog(@"%@", food.picture);
+    // 删除文件扩展名
+    NSString *urlString = [food.picture stringByDeletingPathExtension];
+    // 创建字符串对应的URL
+    NSURL *url  = [NSURL URLWithString:urlString];
+    // 使用SDWebImage框架设置URL图像
+    [self.iconView sd_setImageWithURL:url];
+    
+    // 判断是否有描述, 根据描述重新标记约束
     CGFloat margin = 10;
     if (food.desc.length > 0) {
         // 有描述, contentView参照描述标签的底部
@@ -140,7 +152,6 @@
             make.bottom.equalTo(_priceLabel.mas_bottom).offset(margin);
         }];
     }
-    
 }
 
 @end
