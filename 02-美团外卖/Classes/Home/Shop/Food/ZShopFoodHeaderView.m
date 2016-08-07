@@ -32,7 +32,7 @@
         [self.contentView addSubview:titleLabel];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.contentView);
+            make.edges.equalTo(self.contentView).insets(UIEdgeInsetsMake(0, 10, 0, 0));
         }];
         
         _titleLabel = titleLabel;
