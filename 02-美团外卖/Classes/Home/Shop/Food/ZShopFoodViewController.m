@@ -15,7 +15,7 @@
 
 /**
  *  extern 关键字是C/OC/C++常用的定义字符串的技巧
- *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 会找到对应的实现
+ *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 系统会找到对应的实现
  */
 extern NSString *const ZShopFoodDidIncreaseNotification; // 菜品订购按钮点击
 extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
@@ -69,7 +69,7 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 {
     ZLog(@"%@", notification);
     
-    // 获取订购位置的中心点
+    // 获取订购按钮的中心点
 //    CGPoint originalPoint = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
     CGPoint point = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
     CGPoint originalPoint = [[UIApplication sharedApplication].keyWindow convertPoint:point toView:self.view];

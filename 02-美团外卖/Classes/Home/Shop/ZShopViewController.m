@@ -11,6 +11,7 @@
 #import "ZShopFoodViewController.h"
 #import "ZShopSellerViewController.h"
 #import "ZShopCommentViewController.h"
+#import "ZShoppingCarView.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
@@ -151,10 +152,23 @@
         [zChildController addObject:vc];
     }
     
-    // 修改子控制器的视图, 适应sizeView的大小
-    [zChildController[0].view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(sizeView);
+    // -------- 添加购物车视图 --------
+    ZShoppingCarView *carView = [ZShoppingCarView shoppingCarView];
+    [sizeView addSubview:carView];
+    
+    // 购物车约束
+    [carView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.equalTo(sizeView);
         make.width.equalTo(contentView);
+        make.height.mas_equalTo(46);
+    }];
+    
+    // 修改子控制器的视图, 适应sizeView的大小
+    // 添加购物车后, 子控制器的视图约束要调整
+    [zChildController[0].view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(sizeView);
+        make.width.equalTo(contentView);
+        make.bottom.equalTo(carView);
     }];
     
     [zChildController[1].view mas_makeConstraints:^(MASConstraintMaker *make) {
