@@ -15,7 +15,12 @@
  */
 + (instancetype)shopOrderControl;
 
+- (UIButton *)increaseBtn;
+
 /* 订购数量 */
 @property (assign, nonatomic) NSInteger count;
+
+/* 是否为增加订购数量, 方便订购动画的操作 */
+@property (assign, nonatomic) BOOL isIncrease;
 
 @end

@@ -14,6 +14,13 @@
 #import "ZShopFoodListCell.h"
 
 /**
+ *  extern 关键字是C/OC/C++常用的定义字符串的技巧
+ *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 会找到对应的实现
+ */
+extern NSString *const ZShopFoodDidIncreaseNotification; // 菜品订购按钮点击
+extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
+
+/**
  *  可重用标识
  */
 static NSString *CategoryCellReuseID = @"CategoryCellReuseID";
@@ -44,6 +51,23 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     // 默认选中菜品类别第一行
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    
+    // -------- 注册通知 --------
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidIncreaseNotification:) name:ZShopFoodDidIncreaseNotification object:nil];
+}
+
+- (void)dealloc
+{
+    // 移除通知监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
+#pragma mark - 通知响应事件
+
+- (void)shopFoodDidIncreaseNotification:(UILocalNotification *)notification
+{
+    ZLog(@"%@", notification);
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

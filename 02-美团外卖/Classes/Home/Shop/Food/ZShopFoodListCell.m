@@ -11,6 +11,9 @@
 #import "UIImageView+WebCache.h"
 #import "ZShopOrderControl.h"
 
+NSString *const ZShopFoodDidIncreaseNotification = @"ZShopFoodDidIncreaseNotification"; // 菜品订购按钮点击
+NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // 加号按钮中心点
+
 @interface ZShopFoodListCell ()
 
 @property (weak, nonatomic) UIImageView *iconView;
@@ -38,6 +41,8 @@
 - (void)zSetupUI
 {
     self.contentView.backgroundColor = [UIColor whiteColor];
+    // 取消选中样式
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     // -------- 图像视图 --------
     UIImageView *iconView = [[UIImageView alloc] init];
@@ -136,6 +141,29 @@
 - (void)actionControlValueChange:(ZShopOrderControl *)actionControl
 {
     ZLog(@"%@ _ %zd", _food.name, actionControl.count);
+    
+    // 如果是数据增加, 有动画
+    if (actionControl.isIncrease) {
+        // -------- 获取加号按钮的坐标, 为动画做准备 --------
+        // 获取点击的加号按钮
+        UIButton *btn = actionControl.increaseBtn;
+        
+        // 整个动画过程会跨越很多控件, 由控制器来完成.
+        UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+        
+        // 转换加号按钮中心点的坐标
+        CGPoint pointInWindow = [actionControl convertPoint:btn.center toView:keyWindow];
+        
+        // -------- 利用通知, 发送坐标点 --------
+        NSDictionary *dict = @{
+                              ZShopFoodIncreaseCenterKey : [NSValue valueWithCGPoint:pointInWindow],
+                              };
+        
+        // 发出通知, 将 数据模型 和 坐标点信息传递出去
+        [[NSNotificationCenter defaultCenter] postNotificationName:ZShopFoodDidIncreaseNotification object:self.food userInfo:dict];
+    }
+    
+    // 如果是数据减少, 没有动画
 }
 
 #pragma mark - Getter & Setter

@@ -60,6 +60,7 @@
 - (IBAction)increaseBtnAction:(id)sender
 {
     self.count++;
+    self.isIncrease = YES;
     
     // 发送 valuechange 事件
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -68,6 +69,7 @@
 - (IBAction)decreaseBtnAction:(id)sender
 {
     self.count--;
+    self.isIncrease = NO;
     
     // 发送 valuechange 事件
     [self sendActionsForControlEvents:UIControlEventValueChanged];
