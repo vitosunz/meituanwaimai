@@ -14,13 +14,6 @@
 #import "ZShopFoodListCell.h"
 
 /**
- *  extern 关键字是C/OC/C++常用的定义字符串的技巧
- *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 系统会找到对应的实现
- */
-extern NSString *const ZShopFoodDidIncreaseNotification; // 菜品订购按钮点击
-extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
-
-/**
  *  可重用标识
  */
 static NSString *CategoryCellReuseID = @"CategoryCellReuseID";
@@ -39,88 +32,21 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
      *  处于顶部的SectionHeader的索引
      */
     NSUInteger _topSectionIndex;
-    
-    /**
-     *  记录购物车菜品的数组
-     */
-    NSMutableArray <ZShopFood *> *_shoppingCarFoods;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // 实例化购物车数组
-    _shoppingCarFoods = [NSMutableArray array];
-    
 //    // 默认选中菜品类别第一行
 //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //    [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-    
-    // -------- 注册通知 --------
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidIncreaseNotification:) name:ZShopFoodDidIncreaseNotification object:nil];
 }
 
 - (void)dealloc
 {
     // 移除通知监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - 通知响应事件
-
-- (void)shopFoodDidIncreaseNotification:(NSNotification *)notification
-{
-    ZLog(@"%@", notification);
-    
-    // -------- 更新购物车数组的数据 --------
-    ZShopFood *food = notification.object;
-    if ([_shoppingCarFoods containsObject:food] == NO) {
-        [_shoppingCarFoods addObject:food];
-    }
-    ZLog(@"购物车数据;  %@", _shoppingCarFoods);
-    
-    // 获取订购按钮的中心点
-//    CGPoint originalPoint = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
-    CGPoint point = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
-    CGPoint originalPoint = [[UIApplication sharedApplication].keyWindow convertPoint:point toView:self.view];
-    
-    // 添加动画的图片
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_common_point"]];
-    // 显示在订购按钮的位置上
-    imageView.center = originalPoint;
-    [self.view addSubview:imageView];
-    
-    // 使用贝塞尔曲线绘制二次参数曲线路径
-    UIBezierPath *bezier = [UIBezierPath bezierPath];
-    [bezier moveToPoint:originalPoint];
-    
-#warning 临时目标点
-    CGPoint destinationPoint = CGPointMake(50, 400);
-    CGPoint controlPoint = CGPointMake(originalPoint.x - 100, originalPoint.y - 150);
-    
-    [bezier addQuadCurveToPoint:destinationPoint controlPoint:controlPoint];
-    
-    // -------- 使用关键帧动画 --------
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    // 隐式代理, 不需要遵守协议, 相关方法定义在NSObject中
-    animation.delegate = self;
-    
-    // 使用 KVC 为动画绑定图像对象
-    [animation setValue:imageView forKey:@"IncreaseAnimationImageView"];
-    
-    animation.path = bezier.CGPath;
-    animation.duration = 1.0;
-    
-    [imageView.layer addAnimation:animation forKey:nil];
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    UIImageView *imageView = [anim valueForKey:@"IncreaseAnimationImageView"];
-    
-    // 动画完成后移除图片
-    [imageView removeFromSuperview];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

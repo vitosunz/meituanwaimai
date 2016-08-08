@@ -17,6 +17,13 @@
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
 
+/**
+ *  extern 关键字是C/OC/C++常用的定义字符串的技巧
+ *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 系统会找到对应的实现
+ */
+extern NSString *const ZShopFoodDidIncreaseNotification; // 菜品订购按钮点击
+extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
+
 @interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 /* 顶部视图 */
@@ -31,6 +38,9 @@
 /* 点菜控制器 */
 @property (weak, nonatomic) ZShopFoodViewController *foodViewController;
 
+/* 购物车视图 */
+@property (weak, nonatomic) ZShoppingCarView *shoppingCarView;
+
 @end
 
 @implementation ZShopViewController {
@@ -38,11 +48,19 @@
      *  菜品分类数组
      */
     NSArray <ZShopFoodCategory *> *_foodCategorys;
+    
+    /**
+     *  记录购物车菜品的数组
+     */
+    NSMutableArray <ZShopFood *> *_shoppingCarFoods;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // 实例化购物车数组
+    _shoppingCarFoods = [NSMutableArray array];
     
     self.title = @"猿糞之家";
     
@@ -56,6 +74,9 @@
     
     // 设置导航栏透明度
     self.navigationController.navigationBar.alpha = 0;
+    
+    // -------- 注册通知 --------
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidIncreaseNotification:) name:ZShopFoodDidIncreaseNotification object:nil];
 }
 
 #pragma mark - 界面初始化
@@ -164,6 +185,7 @@
     // -------- 添加购物车视图 --------
     ZShoppingCarView *carView = [ZShoppingCarView shoppingCarView];
     [sizeView addSubview:carView];
+    self.shoppingCarView = carView;
     
     // 购物车约束
     [carView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -278,6 +300,66 @@
     
     // 带有动画效果的偏移量调整
     [self.contentView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+}
+
+#pragma mark - 通知响应事件
+
+- (void)shopFoodDidIncreaseNotification:(NSNotification *)notification
+{
+    ZLog(@"%@", notification);
+    
+    // -------- 更新购物车数组的数据 --------
+    ZShopFood *food = notification.object;
+    // 同一个数据不用添加两次
+    if ([_shoppingCarFoods containsObject:food] == NO) {
+        [_shoppingCarFoods addObject:food];
+    }
+    ZLog(@"购物车数据;  %@", _shoppingCarFoods);
+    
+    // 获取订购按钮的中心点
+    //    CGPoint originalPoint = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
+    CGPoint point = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
+    CGPoint originalPoint = [[UIApplication sharedApplication].keyWindow convertPoint:point toView:self.view];
+    
+    // 添加动画的图片
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_common_point"]];
+    // 显示在订购按钮的位置上
+    imageView.center = originalPoint;
+    [self.view addSubview:imageView];
+    
+    // 使用贝塞尔曲线绘制二次参数曲线路径
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+    [bezier moveToPoint:originalPoint];
+    
+#warning 临时目标点
+    CGPoint destinationPoint = CGPointMake(50, 400);
+    CGPoint controlPoint = CGPointMake(originalPoint.x - 100, originalPoint.y - 150);
+    
+    [bezier addQuadCurveToPoint:destinationPoint controlPoint:controlPoint];
+    
+    // -------- 使用关键帧动画 --------
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    // 隐式代理, 不需要遵守协议, 相关方法定义在NSObject中
+    animation.delegate = self;
+    
+    // 使用 KVC 为动画绑定图像对象
+    [animation setValue:imageView forKey:@"IncreaseAnimationImageView"];
+    
+    animation.path = bezier.CGPath;
+    animation.duration = 1.0;
+    
+    [imageView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    UIImageView *imageView = [anim valueForKey:@"IncreaseAnimationImageView"];
+    
+    // 动画完成后移除图片
+    [imageView removeFromSuperview];
+    
+    // -------- 更新购物车的数据 --------
+    self.shoppingCarView.shoppingCarFoods = _shoppingCarFoods;
 }
 
 #pragma mark - UIGestureRecognizerDelegate

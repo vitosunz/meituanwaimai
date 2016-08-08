@@ -7,9 +7,13 @@
 //
 
 #import "ZBaseView.h"
+@class ZShopFood;
 
 @interface ZShoppingCarView : ZBaseView
 
 + (instancetype)shoppingCarView;
+
+/* 购物车数组 */
+@property (strong, nonatomic) NSMutableArray <ZShopFood *> *shoppingCarFoods;
 
 @end
