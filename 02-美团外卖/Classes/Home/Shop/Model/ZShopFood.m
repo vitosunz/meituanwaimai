@@ -28,7 +28,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p> {name = %@, month_saled_content = %@, min_price = %@, praise_num = %@, picture = %@, desc = %@}", NSStringFromClass(self.class), self, _name, _month_saled_content, @(_min_price), @(_praise_num), _picture, _desc];
+    return [NSString stringWithFormat:@"<%@: %p> {name = %@, month_saled_content = %@, min_price = %@, praise_num = %@, picture = %@, desc = %@, orderCount = %zd}", NSStringFromClass(self.class), self, _name, _month_saled_content, @(_min_price), @(_praise_num), _picture, _desc, _orderCount];
 }
 
 @end

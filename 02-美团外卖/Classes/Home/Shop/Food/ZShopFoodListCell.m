@@ -142,6 +142,11 @@ NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // �
 {
     ZLog(@"%@ _ %zd", _food.name, actionControl.count);
     
+    // -------- 模型数据处理 --------
+    // 更新模型中菜品数量
+    _food.orderCount = actionControl.count;
+    
+    // -------- 动画处理 --------
     // 如果是数据增加, 有动画
     if (actionControl.isIncrease) {
         // -------- 获取加号按钮的坐标, 为动画做准备 --------

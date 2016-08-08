@@ -42,4 +42,9 @@
  */
 @property (copy, nonatomic) NSString *picture;
 
+/*
+ *  订单数量
+ */
+@property (assign, nonatomic) NSInteger orderCount;
+
 @end

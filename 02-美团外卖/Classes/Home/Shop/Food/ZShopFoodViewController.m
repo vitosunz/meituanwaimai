@@ -39,11 +39,19 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
      *  处于顶部的SectionHeader的索引
      */
     NSUInteger _topSectionIndex;
+    
+    /**
+     *  记录购物车菜品的数组
+     */
+    NSMutableArray <ZShopFood *> *_shoppingCarFoods;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // 实例化购物车数组
+    _shoppingCarFoods = [NSMutableArray array];
     
 //    // 默认选中菜品类别第一行
 //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -61,9 +69,16 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 
 #pragma mark - 通知响应事件
 
-- (void)shopFoodDidIncreaseNotification:(UILocalNotification *)notification
+- (void)shopFoodDidIncreaseNotification:(NSNotification *)notification
 {
     ZLog(@"%@", notification);
+    
+    // -------- 更新购物车数组的数据 --------
+    ZShopFood *food = notification.object;
+    if ([_shoppingCarFoods containsObject:food] == NO) {
+        [_shoppingCarFoods addObject:food];
+    }
+    ZLog(@"购物车数据;  %@", _shoppingCarFoods);
     
     // 获取订购按钮的中心点
 //    CGPoint originalPoint = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
