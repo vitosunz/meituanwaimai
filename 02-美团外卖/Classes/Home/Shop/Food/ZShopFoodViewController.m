@@ -68,6 +68,48 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 - (void)shopFoodDidIncreaseNotification:(UILocalNotification *)notification
 {
     ZLog(@"%@", notification);
+    
+    // 获取订购位置的中心点
+//    CGPoint originalPoint = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
+    CGPoint point = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
+    CGPoint originalPoint = [[UIApplication sharedApplication].keyWindow convertPoint:point toView:self.view];
+    
+    // 添加动画的图片
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_common_point"]];
+    // 显示在订购按钮的位置上
+    imageView.center = originalPoint;
+    [self.view addSubview:imageView];
+    
+    // 使用贝塞尔曲线绘制二次参数曲线路径
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+    [bezier moveToPoint:originalPoint];
+    
+#warning 临时目标点
+    CGPoint destinationPoint = CGPointMake(50, 400);
+    CGPoint controlPoint = CGPointMake(originalPoint.x - 100, originalPoint.y - 150);
+    
+    [bezier addQuadCurveToPoint:destinationPoint controlPoint:controlPoint];
+    
+    // -------- 使用关键帧动画 --------
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    // 隐式代理, 不需要遵守协议, 相关方法定义在NSObject中
+    animation.delegate = self;
+    
+    // 使用 KVC 为动画绑定图像对象
+    [animation setValue:imageView forKey:@"IncreaseAnimationImageView"];
+    
+    animation.path = bezier.CGPath;
+    animation.duration = 1.0;
+    
+    [imageView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    UIImageView *imageView = [anim valueForKey:@"IncreaseAnimationImageView"];
+    
+    // 动画完成后移除图片
+    [imageView removeFromSuperview];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

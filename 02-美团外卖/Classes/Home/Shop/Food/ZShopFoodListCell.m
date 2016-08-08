@@ -161,6 +161,12 @@ NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // �
         
         // 发出通知, 将 数据模型 和 坐标点信息传递出去
         [[NSNotificationCenter defaultCenter] postNotificationName:ZShopFoodDidIncreaseNotification object:self.food userInfo:dict];
+        
+        // 测试坐标点位置
+//        UIButton *bDemo = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//        bDemo.center = pointInWindow;
+//
+//        [keyWindow addSubview:bDemo];
     }
     
     // 如果是数据减少, 没有动画
