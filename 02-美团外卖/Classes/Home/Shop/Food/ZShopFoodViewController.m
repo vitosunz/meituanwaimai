@@ -36,11 +36,6 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 
 @implementation ZShopFoodViewController {
     /**
-     *  菜品分类数组
-     */
-    NSArray <ZShopFoodCategory *> *_foodCategorys;
-    
-    /**
      *  处于顶部的SectionHeader的索引
      */
     NSUInteger _topSectionIndex;
@@ -50,12 +45,9 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 {
     [super viewDidLoad];
     
-    // 加载数据
-    [self loadData];
-    
-    // 默认选中菜品类别第一行
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+//    // 默认选中菜品类别第一行
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
     
     // -------- 注册通知 --------
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidIncreaseNotification:) name:ZShopFoodDidIncreaseNotification object:nil];
@@ -65,7 +57,6 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
 {
     // 移除通知监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
 }
 
 #pragma mark - 通知响应事件
@@ -310,36 +301,19 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     _topSectionIndex = 0;
 }
 
-#pragma mark - 数据加载
+#pragma mark - Getter & Setter
 
-- (void)loadData
+- (void)setFoodCategorys:(NSArray<ZShopFoodCategory *> *)foodCategorys
 {
-    // -------- 加载JSON数据 --------
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"food.json" withExtension:nil];
-    NSData *data = [NSData dataWithContentsOfURL:url];
+    _foodCategorys = foodCategorys;
     
-    // 反序列化
-    NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    // 刷新数据源相关的表格视图
+    [self.foodCategoryView reloadData];
+    [self.foodListView reloadData];
     
-    // -------- 获取菜品类型对应的数据 --------
-    NSArray *foodcategorys = resultDict[@"data"][@"food_spu_tags"];
-    
-    // 保存数据到磁盘, 实现工作中做数据测试的重要手段
-//    [resultDict writeToFile:@"/Users/ZED/Desktop/food.plist" atomically:YES];
-    
-    // 将字典数据转换成模型
-    NSMutableArray *tempArrM = [NSMutableArray array];
-    for (NSDictionary *dict in foodcategorys) {
-        // 建立模型
-        ZShopFoodCategory *foodcategory = [[ZShopFoodCategory alloc] init];
-        // 字典转模型
-        [foodcategory setValuesForKeysWithDictionary:dict];
-        
-        [tempArrM addObject:foodcategory];
-    }
-    
-    _foodCategorys = [tempArrM copy];
-//    NSLog(@"%@", tempArrM);
+    // 默认选中菜品类别第一行
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.foodCategoryView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
 @end

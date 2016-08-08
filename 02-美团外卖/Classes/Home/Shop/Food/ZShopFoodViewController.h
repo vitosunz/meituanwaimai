@@ -7,7 +7,11 @@
 //
 
 #import "ZBaseViewController.h"
+@class ZShopFoodCategory;
 
 @interface ZShopFoodViewController : ZBaseViewController
+
+/* 菜品数据源 */
+@property (strong, nonatomic) NSArray <ZShopFoodCategory *> *foodCategorys;
 
 @end

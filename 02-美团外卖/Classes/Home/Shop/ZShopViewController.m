@@ -12,36 +12,42 @@
 #import "ZShopSellerViewController.h"
 #import "ZShopCommentViewController.h"
 #import "ZShoppingCarView.h"
+#import "ZShopFoodCategory.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
 
 @interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
-/**
- *  顶部视图
- */
+/* 顶部视图 */
 @property (weak, nonatomic) UIView *headerView;
 
-/**
- *  中间分类视图
- */
+/* 中间分类视图 */
 @property (weak, nonatomic) ZShopCategoryView *categoryView;
 
-/**
- *  底部内容视图
- */
+/* 底部内容视图 */
 @property (weak, nonatomic) UIScrollView *contentView;
+
+/* 点菜控制器 */
+@property (weak, nonatomic) ZShopFoodViewController *foodViewController;
 
 @end
 
-@implementation ZShopViewController
+@implementation ZShopViewController {
+    /**
+     *  菜品分类数组
+     */
+    NSArray <ZShopFoodCategory *> *_foodCategorys;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = @"猿糞之家";
+    
+    // 加载数据
+    [self loadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -151,6 +157,9 @@
         [self zAddChildConrollerView:vc intoView:sizeView];
         [zChildController addObject:vc];
     }
+    
+    // 记录点菜控制器
+    self.foodViewController = (ZShopFoodViewController *)zChildController[0];
     
     // -------- 添加购物车视图 --------
     ZShoppingCarView *carView = [ZShoppingCarView shoppingCarView];
@@ -291,6 +300,41 @@
         // 对应的比例关系是 1 : 3, contentView的contentSize是三倍大小
         self.categoryView.lineOffsetX = scrollView.contentOffset.x / 3;
     }
+}
+
+#pragma mark - 数据加载
+
+- (void)loadData
+{
+    // -------- 加载JSON数据 --------
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"food.json" withExtension:nil];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    // 反序列化
+    NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    
+    // -------- 获取菜品类型对应的数据 --------
+    NSArray *foodcategorys = resultDict[@"data"][@"food_spu_tags"];
+    
+    // 保存数据到磁盘, 实现工作中做数据测试的重要手段
+    //    [resultDict writeToFile:@"/Users/ZED/Desktop/food.plist" atomically:YES];
+    
+    // 将字典数据转换成模型
+    NSMutableArray *tempArrM = [NSMutableArray array];
+    for (NSDictionary *dict in foodcategorys) {
+        // 建立模型
+        ZShopFoodCategory *foodcategory = [[ZShopFoodCategory alloc] init];
+        // 字典转模型
+        [foodcategory setValuesForKeysWithDictionary:dict];
+        
+        [tempArrM addObject:foodcategory];
+    }
+    
+    _foodCategorys = [tempArrM copy];
+    //    NSLog(@"%@", tempArrM);
+    
+    // -------- 加载后的数据传递给ShopFoodViewController实例 --------
+    self.foodViewController.foodCategorys = _foodCategorys;
 }
 
 @end
