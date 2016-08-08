@@ -70,7 +70,8 @@
     // 约束在第一个按钮位置下
     UIButton *firstBtn = buttons.firstObject;
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.bottom.centerX.equalTo(firstBtn);
+        make.bottom.centerX.equalTo(firstBtn);
+        make.width.mas_equalTo(40);
         make.height.mas_equalTo(4);
     }];
     

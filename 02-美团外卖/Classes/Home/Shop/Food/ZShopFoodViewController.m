@@ -39,6 +39,11 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
      *  菜品分类数组
      */
     NSArray <ZShopFoodCategory *> *_foodCategorys;
+    
+    /**
+     *  处于顶部的SectionHeader的索引
+     */
+    NSUInteger _topSectionIndex;
 }
 
 - (void)viewDidLoad
@@ -208,20 +213,36 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     return headerView;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
-    if (tableView == self.foodCategoryView) {
-        return;
+    if (tableView == self.foodListView) {
+        
+        //  如果要显示的是上一组的Header, 则上级header在顶部
+        if (section < _foodCategorys.count - 1 && _topSectionIndex == section + 1) {
+            
+            NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:section inSection:0];
+            
+            // 会选中执行Cell, 但不会触发 didSelect 的代理方法
+            [self.foodCategoryView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+            _topSectionIndex = section;
+        }
     }
-    
-    // -------- 菜品列表视图, 滚动后, 菜品类别要更新对应的选择 --------
-    // 菜品列表中的 section, 对应是分类表格的 row
-    NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.section inSection:0];
-    
-    // scrollAtIndexPath 只会将该行移动到指定位置上, 并不会选中
-//    [self.foodCategoryView scrollToRowAtIndexPath:_NEWINDEX atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    
-    [self.foodCategoryView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if (tableView == self.foodListView) {
+
+        // 如果顶部的header要消失, 则下一组header显示在顶部
+        if (section < _foodCategorys.count - 1 && _topSectionIndex == section) {
+            
+            NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:section + 1 inSection:0];
+            
+            // 会选中执行Cell, 但不会触发 didSelect 的代理方法
+            [self.foodCategoryView selectRowAtIndexPath:selectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+            _topSectionIndex = section + 1;
+        }
+    }
 }
 
 #pragma mark - 界面初始化
@@ -238,6 +259,8 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     foodCategoryView.rowHeight = 55;
     // 取消分隔线
     foodCategoryView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 背景色
+    foodCategoryView.backgroundColor = [UIColor zColorWithHex:0xF8F8F8];
     
     // 菜品列表视图
     UITableView *foodListView = [[UITableView alloc] init];
@@ -262,7 +285,7 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     
     [foodListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.equalTo(self.view);
-        make.left.equalTo(foodCategoryView.mas_right).offset(9);
+        make.left.equalTo(foodCategoryView.mas_right);
     }];
     
     // -------- 配置TableView --------
@@ -282,6 +305,9 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
     // -------- 配置HeaderView的高度 --------
     // 设置Header高度, 如果要自定义Header视图, 一定要设置行高, 否则不走代理方法
     foodListView.sectionHeaderHeight = 23;
+    
+    // -------- 默认第一行header处于顶部 --------
+    _topSectionIndex = 0;
 }
 
 #pragma mark - 数据加载

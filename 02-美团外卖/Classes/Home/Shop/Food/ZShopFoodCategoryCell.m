@@ -37,7 +37,7 @@
         self.selectedBackgroundView = bgView;
         
         // 设置默认状态背景色
-        self.contentView.backgroundColor = [UIColor zColorWithHex:0xe8e8e8];
+        self.contentView.backgroundColor = [UIColor zColorWithHex:0xF8F8F8];
         
         // -------- 添加分割线 --------
         UIView *separatorLine = [[UIView alloc] init];
