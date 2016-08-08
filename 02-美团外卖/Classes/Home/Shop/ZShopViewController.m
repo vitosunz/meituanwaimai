@@ -331,8 +331,7 @@ extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
     UIBezierPath *bezier = [UIBezierPath bezierPath];
     [bezier moveToPoint:originalPoint];
     
-#warning 临时目标点
-    CGPoint destinationPoint = CGPointMake(50, 400);
+    CGPoint destinationPoint = CGPointMake(50, self.view.bounds.size.height - 40);
     CGPoint controlPoint = CGPointMake(originalPoint.x - 100, originalPoint.y - 150);
     
     [bezier addQuadCurveToPoint:destinationPoint controlPoint:controlPoint];

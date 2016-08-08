@@ -52,7 +52,7 @@
     
     // 订购数量小于1时隐藏控件
     _countLabel.hidden = (_count <= 0);
-    _decreaseBtn.hidden = @(_count <= 0);
+    _decreaseBtn.hidden = (_count <= 0);
 }
 
 #pragma mark - 按钮响应事件
