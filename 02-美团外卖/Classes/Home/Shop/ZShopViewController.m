@@ -13,6 +13,7 @@
 #import "ZShopCommentViewController.h"
 #import "ZShoppingCarView.h"
 #import "ZShopFoodCategory.h"
+#import "ZShopFood.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
@@ -21,8 +22,9 @@
  *  extern 关键字是C/OC/C++常用的定义字符串的技巧
  *  表示字符串的内容在其它位置实现, 使用extern只需要做声明, 系统会找到对应的实现
  */
-extern NSString *const ZShopFoodDidIncreaseNotification; // 菜品订购按钮点击
-extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
+extern NSString *const ZShopFoodDidIncreaseNotification;    // 菜品订购增加
+extern NSString *const ZShopFoodDidDecreaseNotification;    // 菜品订购减少
+extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
 
 @interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
@@ -77,6 +79,7 @@ extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
     
     // -------- 注册通知 --------
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidIncreaseNotification:) name:ZShopFoodDidIncreaseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shopFoodDidDecreaseNotification:) name:ZShopFoodDidDecreaseNotification object:nil];
 }
 
 #pragma mark - 界面初始化
@@ -349,6 +352,21 @@ extern NSString *const ZShopFoodIncreaseCenterKey; // 加号按钮中心点
     
     [imageView.layer addAnimation:animation forKey:nil];
 }
+
+- (void)shopFoodDidDecreaseNotification:(NSNotification *)notification
+{
+    ZShopFood *food = notification.object;
+    
+    // 菜品数量为0时, 从购物车中删除
+    if (food.orderCount == 0) {
+        [_shoppingCarFoods removeObject:food];
+    }
+    
+    // 更新购物车模型 (更新UI)
+    _shoppingCarView.shoppingCarFoods = _shoppingCarFoods;
+}
+
+#pragma mark - CAAnimationDelegate
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {

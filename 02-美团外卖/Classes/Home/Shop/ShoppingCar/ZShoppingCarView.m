@@ -63,6 +63,8 @@
         [_accountBtn setBackgroundColor:[UIColor lightGrayColor]];
     } else {
         [_accountBtn setTitle:@"去结账" forState:UIControlStateNormal];
+        
+        _accountBtn.enabled = YES;
         [_accountBtn setBackgroundColor:[UIColor orangeColor]];
     }
 }

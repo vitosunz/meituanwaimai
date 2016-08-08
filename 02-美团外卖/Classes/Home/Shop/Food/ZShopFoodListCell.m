@@ -11,7 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "ZShopOrderControl.h"
 
-NSString *const ZShopFoodDidIncreaseNotification = @"ZShopFoodDidIncreaseNotification"; // 菜品订购按钮点击
+NSString *const ZShopFoodDidIncreaseNotification = @"ZShopFoodDidIncreaseNotification"; // 菜品订购增加
+NSString *const ZShopFoodDidDecreaseNotification = @"ZShopFoodDidDecreaseNotification"; // 菜品订购删除
 NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // 加号按钮中心点
 
 @interface ZShopFoodListCell ()
@@ -172,9 +173,11 @@ NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // �
 //        bDemo.center = pointInWindow;
 //
 //        [keyWindow addSubview:bDemo];
+    } else {
+        // 如果是数据减少, 没有动画
+        [[NSNotificationCenter defaultCenter] postNotificationName:ZShopFoodDidDecreaseNotification object:_food userInfo:nil];
     }
     
-    // 如果是数据减少, 没有动画
 }
 
 #pragma mark - Getter & Setter
