@@ -14,10 +14,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsu-hT-u72" userLabel="Increase">
                     <rect key="frame" x="60" y="0.0" width="27" height="27"/>
                     <state key="normal" image="icon_food_increase_small"/>
+                    <connections>
+                        <action selector="increaseBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="wQl-S9-6Vg"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-dO-PNP" userLabel="Decrease">
                     <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
                     <state key="normal" image="icon_food_decrease_small"/>
+                    <connections>
+                        <action selector="decreaseBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="xzJ-zx-3Fs"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-nZ-hLZ">
                     <rect key="frame" x="35" y="5.5" width="17" height="16"/>
@@ -45,6 +51,11 @@
                     <exclude reference="RmC-L4-0HL"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="countLabel" destination="Mh5-nZ-hLZ" id="fbX-Q7-2zU"/>
+                <outlet property="decreaseBtn" destination="TmS-dO-PNP" id="e7d-hj-7el"/>
+                <outlet property="increaseBtn" destination="Wsu-hT-u72" id="Mh5-hU-AES"/>
+            </connections>
             <point key="canvasLocation" x="303.5" y="368.5"/>
         </view>
     </objects>

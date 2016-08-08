@@ -15,4 +15,7 @@
  */
 + (instancetype)shopOrderControl;
 
+/* 订购数量 */
+@property (assign, nonatomic) NSInteger count;
+
 @end

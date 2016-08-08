@@ -126,6 +126,16 @@
         // 通过Xib实例化的控件, 其size就是Xib中定义的
         make.size.mas_equalTo(actionControl.bounds.size);
     }];
+    
+    // 添加操作控件的事件监听
+    [actionControl addTarget:self action:@selector(actionControlValueChange:) forControlEvents:UIControlEventValueChanged];
+}
+
+#pragma mark - 响应事件
+
+- (void)actionControlValueChange:(ZShopOrderControl *)actionControl
+{
+    ZLog(@"%@ _ %zd", _food.name, actionControl.count);
 }
 
 #pragma mark - Getter & Setter
