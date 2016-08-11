@@ -18,7 +18,7 @@
 /* 购物车按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *shopCarBtn;
 /* 计数按钮 */
-@property (weak, nonatomic) UIButton *countBtn;
+@property (weak, nonatomic) IBOutlet UIButton *countBtn;
 
 @end
 
@@ -27,6 +27,35 @@
 + (instancetype)shoppingCarView
 {
     return [[UINib nibWithNibName:NSStringFromClass(self.class) bundle:nil] instantiateWithOwner:nil options:nil][0];
+}
+
+- (void)awakeFromNib
+{
+    // 给购物车数据设置初始值
+    self.shoppingCarFoods = nil;
+}
+
+#pragma mark - 按钮响应事件
+
+/**
+ *  结账按钮 (跳转到结账页面)
+ *  所有控制器之间的跳转都是由控制器负责的, 视图只负责显示和事件处理
+ */
+- (IBAction)accountAction:(UIButton *)sender
+{
+    /**
+     *  如果协议方法是可选的, 需要判断代理是否实现了协议方法, 否则直接调用会崩溃
+     */
+    if ([self.delegate respondsToSelector:@selector(shoppingCarViewDidCheckAccount:)]) {
+        [self.delegate shoppingCarViewDidCheckAccount:self];
+    }
+}
+
+- (IBAction)shoppingCarAction:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(shoppingCarView:willDisplayShoppingCar:)]) {
+        [self.delegate shoppingCarView:self willDisplayShoppingCar:self.shopCarBtn];
+    }
 }
 
 #pragma mark - Getter & Setter
