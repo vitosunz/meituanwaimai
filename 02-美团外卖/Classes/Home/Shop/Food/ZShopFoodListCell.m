@@ -23,6 +23,8 @@ NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // �
 @property (weak, nonatomic) UILabel *likeLabel;
 @property (weak, nonatomic) UILabel *priceLabel;
 @property (weak, nonatomic) UILabel *descLabel;
+/* 订单操作控件 */
+@property (weak, nonatomic) ZShopOrderControl *orderControl;
 
 @end
 
@@ -123,6 +125,7 @@ NSString *const ZShopFoodIncreaseCenterKey = @"ZShopFoodIncreaseCenterKey"; // �
     // -------- 添加操作控件 --------
     ZShopOrderControl *actionControl = [ZShopOrderControl shopOrderControl];
     [self.contentView addSubview:actionControl];
+    self.orderControl = actionControl;
     
     [actionControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.iconView);

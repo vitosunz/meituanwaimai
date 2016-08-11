@@ -324,13 +324,13 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
     CGPoint point = [notification.userInfo[ZShopFoodIncreaseCenterKey] CGPointValue];
     CGPoint originalPoint = [[UIApplication sharedApplication].keyWindow convertPoint:point toView:self.view];
     
-    // 添加动画的图片
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_common_point"]];
+    // -------- 添加动画的图片 --------
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_food_count_bg"]];
     // 显示在订购按钮的位置上
     imageView.center = originalPoint;
     [self.view addSubview:imageView];
     
-    // 使用贝塞尔曲线绘制二次参数曲线路径
+    // -------- 使用贝塞尔曲线绘制二次参数曲线路径 --------
     UIBezierPath *bezier = [UIBezierPath bezierPath];
     [bezier moveToPoint:originalPoint];
     

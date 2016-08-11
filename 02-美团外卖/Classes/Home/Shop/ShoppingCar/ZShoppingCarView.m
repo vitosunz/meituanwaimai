@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 /* 购物车按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *shopCarBtn;
+/* 计数按钮 */
+@property (weak, nonatomic) UIButton *countBtn;
 
 @end
 
@@ -38,9 +40,13 @@
     
     // -------- 计算总金额 --------
     CGFloat amount = 0;
+    NSInteger count = 0;
+    
     for (ZShopFood *food in _shoppingCarFoods) {
         // 单价 * 数量
         amount += food.min_price * food.orderCount;
+        // 计算购买的菜品总数量
+        count += food.orderCount;
     }
     
     // 购物车是空白时提示处理
@@ -49,6 +55,10 @@
     } else {
         _tipLabel.text = @"购物车空空如也~";
     }
+    
+    // 根据商品数量决定是否显示计数按钮
+    _countBtn.hidden = (count == 0);
+    [_countBtn setTitle:@(count).description forState:UIControlStateNormal];
     
     // -------- 结账按钮 --------
     // 最小起送金额
@@ -67,6 +77,15 @@
         _accountBtn.enabled = YES;
         [_accountBtn setBackgroundColor:[UIColor orangeColor]];
     }
+    
+    // -------- 购物车按钮动画--------
+    // 初始状态, 缩小
+    _shopCarBtn.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    // 弹簧动画
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.2 initialSpringVelocity:0 options:0 animations:^{
+        // 从缩小变回标准大小
+        _shopCarBtn.transform = CGAffineTransformIdentity;
+    } completion:nil];
 }
 
 @end
