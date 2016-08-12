@@ -14,6 +14,7 @@
 #import "ZShoppingCarView.h"
 #import "ZShopFoodCategory.h"
 #import "ZShopFood.h"
+#import "ZShoppingCarViewController.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
@@ -26,7 +27,7 @@ extern NSString *const ZShopFoodDidIncreaseNotification;    // 菜品订购增�
 extern NSString *const ZShopFoodDidDecreaseNotification;    // 菜品订购减少
 extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
 
-@interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate, ZShoppingCarViewDelegate>
 
 /* 顶部视图 */
 @property (weak, nonatomic) UIView *headerView;
@@ -189,6 +190,9 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
     ZShoppingCarView *carView = [ZShoppingCarView shoppingCarView];
     [sizeView addSubview:carView];
     self.shoppingCarView = carView;
+    
+    // 配置代理
+    self.shoppingCarView.delegate = self;
     
     // 购物车约束
     [carView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -399,6 +403,16 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
         // 对应的比例关系是 1 : 3, contentView的contentSize是三倍大小
         self.categoryView.lineOffsetX = scrollView.contentOffset.x / 3;
     }
+}
+
+#pragma mark - ZShoppingCarViewDelegate
+
+- (void)shoppingCarView:(ZShoppingCarView *)shoppintCarView willDisplayShoppingCar:(UIButton *)shopCar
+{
+    // 弹出购物车控制器
+    ZShoppingCarViewController *vc = [[ZShoppingCarViewController alloc] init];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - 数据加载

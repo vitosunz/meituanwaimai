@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		95243F531D579D6D0043E90B /* ZShopOrderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 95243F521D579D6D0043E90B /* ZShopOrderControl.m */; };
 		95243F551D579D8F0043E90B /* ZShopOrderControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95243F541D579D8F0043E90B /* ZShopOrderControl.xib */; };
+		953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */; };
+		953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */; };
 		956375D71D5866FE00145D7E /* ZShoppingCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956375D61D5866FE00145D7E /* ZShoppingCarView.m */; };
 		956375DB1D586FA200145D7E /* ZShoppingCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956375DA1D586FA200145D7E /* ZShoppingCarView.xib */; };
 		95CD89F91D4F8E6100BD16AA /* UIButton+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD89F81D4F8E6100BD16AA /* UIButton+ZUtilities.m */; };
@@ -75,6 +77,9 @@
 		95243F511D579D6D0043E90B /* ZShopOrderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopOrderControl.h; sourceTree = "<group>"; };
 		95243F521D579D6D0043E90B /* ZShopOrderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopOrderControl.m; sourceTree = "<group>"; };
 		95243F541D579D8F0043E90B /* ZShopOrderControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShopOrderControl.xib; sourceTree = "<group>"; };
+		953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarViewController.h; sourceTree = "<group>"; };
+		953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarViewController.m; sourceTree = "<group>"; };
+		953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarViewController.xib; sourceTree = "<group>"; };
 		956375D51D5866FE00145D7E /* ZShoppingCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarView.h; sourceTree = "<group>"; };
 		956375D61D5866FE00145D7E /* ZShoppingCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarView.m; sourceTree = "<group>"; };
 		956375DA1D586FA200145D7E /* ZShoppingCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarView.xib; sourceTree = "<group>"; };
@@ -217,6 +222,9 @@
 				956375D51D5866FE00145D7E /* ZShoppingCarView.h */,
 				956375D61D5866FE00145D7E /* ZShoppingCarView.m */,
 				956375DA1D586FA200145D7E /* ZShoppingCarView.xib */,
+				953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */,
+				953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */,
+				953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */,
 			);
 			path = ShoppingCar;
 			sourceTree = "<group>";
@@ -580,6 +588,7 @@
 				95E39A691D50D7F700750BD7 /* food.json in Resources */,
 				95E1EE9C1D4F008800C13F30 /* Assets.xcassets in Resources */,
 				95E1EE9A1D4F008800C13F30 /* Main.storyboard in Resources */,
+				953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +621,7 @@
 				95E1EF841D4F772D00C13F30 /* UIImageView+WebCache.m in Sources */,
 				95E1EF6D1D4F772D00C13F30 /* MASConstraint.m in Sources */,
 				95E1EE941D4F008800C13F30 /* AppDelegate.m in Sources */,
+				953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */,
 				95E1EF971D4F802200C13F30 /* UIView+ZUtilities.m in Sources */,
 				95E1EF701D4F772D00C13F30 /* MASViewAttribute.m in Sources */,
 				95E1EF731D4F772D00C13F30 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
