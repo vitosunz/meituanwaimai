@@ -11,6 +11,7 @@
 		95243F551D579D8F0043E90B /* ZShopOrderControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95243F541D579D8F0043E90B /* ZShopOrderControl.xib */; };
 		953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */; };
 		953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */; };
+		953886B41D5DADC90060A3FA /* ZShoppingCarPresentationControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */; };
 		956375D71D5866FE00145D7E /* ZShoppingCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956375D61D5866FE00145D7E /* ZShoppingCarView.m */; };
 		956375DB1D586FA200145D7E /* ZShoppingCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956375DA1D586FA200145D7E /* ZShoppingCarView.xib */; };
 		95CD89F91D4F8E6100BD16AA /* UIButton+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD89F81D4F8E6100BD16AA /* UIButton+ZUtilities.m */; };
@@ -80,6 +81,8 @@
 		953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarViewController.h; sourceTree = "<group>"; };
 		953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarViewController.m; sourceTree = "<group>"; };
 		953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarViewController.xib; sourceTree = "<group>"; };
+		953886B21D5DADC90060A3FA /* ZShoppingCarPresentationControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarPresentationControl.h; sourceTree = "<group>"; };
+		953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarPresentationControl.m; sourceTree = "<group>"; };
 		956375D51D5866FE00145D7E /* ZShoppingCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarView.h; sourceTree = "<group>"; };
 		956375D61D5866FE00145D7E /* ZShoppingCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarView.m; sourceTree = "<group>"; };
 		956375DA1D586FA200145D7E /* ZShoppingCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarView.xib; sourceTree = "<group>"; };
@@ -216,6 +219,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		953886B51D5DADDC0060A3FA /* TransitionAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				953886B21D5DADC90060A3FA /* ZShoppingCarPresentationControl.h */,
+				953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */,
+			);
+			name = TransitionAnimator;
+			sourceTree = "<group>";
+		};
 		956375D41D5866D900145D7E /* ShoppingCar */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +237,7 @@
 				953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */,
 				953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */,
 				953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */,
+				953886B51D5DADDC0060A3FA /* TransitionAnimator */,
 			);
 			path = ShoppingCar;
 			sourceTree = "<group>";
@@ -634,6 +647,7 @@
 				95D863011D56E83300C6EB14 /* ZShopFoodListCell.m in Sources */,
 				95E1EF1D1D4F419A00C13F30 /* ZBaseView.m in Sources */,
 				95E39A9D1D54820000750BD7 /* ZShopFoodCategory.m in Sources */,
+				953886B41D5DADC90060A3FA /* ZShoppingCarPresentationControl.m in Sources */,
 				95E39A9C1D54820000750BD7 /* ZShopFood.m in Sources */,
 				95E1EF7D1D4F772D00C13F30 /* SDWebImageManager.m in Sources */,
 				95D862FE1D563B5E00C6EB14 /* UILabel+ZUtilities.m in Sources */,
