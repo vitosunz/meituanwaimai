@@ -27,7 +27,7 @@ extern NSString *const ZShopFoodDidIncreaseNotification;    // 菜品订购增�
 extern NSString *const ZShopFoodDidDecreaseNotification;    // 菜品订购减少
 extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
 
-@interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate, ZShoppingCarViewDelegate>
+@interface ZShopViewController () <UIGestureRecognizerDelegate, UIScrollViewDelegate, ZShoppingCarViewDelegate, ZShopFoodViewControllerDelegate>
 
 /* 顶部视图 */
 @property (weak, nonatomic) UIView *headerView;
@@ -185,6 +185,9 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
     
     // 记录点菜控制器
     self.foodViewController = (ZShopFoodViewController *)zChildController[0];
+    
+    // 配置点菜控制器代理
+    self.foodViewController.delegate = self;
     
     // -------- 添加购物车视图 --------
     ZShoppingCarView *carView = [ZShoppingCarView shoppingCarView];
@@ -413,6 +416,13 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
     ZShoppingCarViewController *vc = [[ZShoppingCarViewController alloc] init];
     
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - ZShopFoodViewControllerDelegate
+
+- (void)shopFoodViewController:(ZShopFoodViewController *)controller didSelectedFood:(ZShopFood *)food
+{
+    ZLog(@"food : %@", food);
 }
 
 #pragma mark - 数据加载

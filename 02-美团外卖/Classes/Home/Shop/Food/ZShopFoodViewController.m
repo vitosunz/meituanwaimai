@@ -118,6 +118,18 @@ static NSString *ListHeaderReuseID = @"ListHeaderReuseID";
         // 让右侧的 foodListView 滚动
         [self.foodListView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
+    
+    if (tableView == self.foodListView) {
+        // 取消选中
+        [self.foodListView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // 通知代理
+        if ([self.delegate respondsToSelector:@selector(shopFoodViewController:didSelectedFood:)]) {
+            // 获取对应模型
+            ZShopFood *food = [self.foodCategorys[indexPath.section].spus objectAtIndex:indexPath.row];
+            [self.delegate shopFoodViewController:self didSelectedFood:food];
+        }
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
