@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZShopFoodDetailViewController">
+            <connections>
+                <outlet property="imageView" destination="Ec1-nh-b41" id="48W-Rz-Cz0"/>
+                <outlet property="tableView" destination="2k3-1Z-Jdp" id="x1N-UX-epJ"/>
+                <outlet property="view" destination="X9D-fa-5YA" id="SP8-57-2Pj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="X9D-fa-5YA">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2k3-1Z-Jdp">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dND-WJ-rNs"/>
+                        <outlet property="delegate" destination="-1" id="rm0-Lz-Ip5"/>
+                    </connections>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-nh-b41">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="6CE-wF-g7t"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ec1-nh-b41" secondAttribute="trailing" id="PLE-jo-k6U"/>
+                <constraint firstItem="2k3-1Z-Jdp" firstAttribute="top" secondItem="X9D-fa-5YA" secondAttribute="top" id="TMr-PL-X8E"/>
+                <constraint firstAttribute="bottom" secondItem="2k3-1Z-Jdp" secondAttribute="bottom" id="WgM-Hb-XZL"/>
+                <constraint firstItem="2k3-1Z-Jdp" firstAttribute="leading" secondItem="X9D-fa-5YA" secondAttribute="leading" id="bRA-Be-5If"/>
+                <constraint firstItem="Ec1-nh-b41" firstAttribute="top" secondItem="X9D-fa-5YA" secondAttribute="top" id="dHr-2F-xyM"/>
+                <constraint firstItem="2k3-1Z-Jdp" firstAttribute="top" secondItem="Ec1-nh-b41" secondAttribute="bottom" id="eOX-Cu-U4a"/>
+                <constraint firstItem="Ec1-nh-b41" firstAttribute="leading" secondItem="X9D-fa-5YA" secondAttribute="leading" id="gEr-XJ-UDW"/>
+                <constraint firstAttribute="trailing" secondItem="2k3-1Z-Jdp" secondAttribute="trailing" id="mJF-4o-Y5o"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eOX-Cu-U4a"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="300" y="76"/>
+        </view>
+    </objects>
+</document>

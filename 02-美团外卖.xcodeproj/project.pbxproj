@@ -12,6 +12,8 @@
 		953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */; };
 		953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */; };
 		953886B41D5DADC90060A3FA /* ZShoppingCarPresentationControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */; };
+		953886B81D5F12850060A3FA /* ZShopFoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886B71D5F12850060A3FA /* ZShopFoodDetailViewController.m */; };
+		953886BA1D5F17C20060A3FA /* ZShopFoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886B91D5F17C20060A3FA /* ZShopFoodDetailViewController.xib */; };
 		956375D71D5866FE00145D7E /* ZShoppingCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956375D61D5866FE00145D7E /* ZShoppingCarView.m */; };
 		956375DB1D586FA200145D7E /* ZShoppingCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956375DA1D586FA200145D7E /* ZShoppingCarView.xib */; };
 		95CD89F91D4F8E6100BD16AA /* UIButton+ZUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD89F81D4F8E6100BD16AA /* UIButton+ZUtilities.m */; };
@@ -83,6 +85,9 @@
 		953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarViewController.xib; sourceTree = "<group>"; };
 		953886B21D5DADC90060A3FA /* ZShoppingCarPresentationControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarPresentationControl.h; sourceTree = "<group>"; };
 		953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarPresentationControl.m; sourceTree = "<group>"; };
+		953886B61D5F12850060A3FA /* ZShopFoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopFoodDetailViewController.h; sourceTree = "<group>"; };
+		953886B71D5F12850060A3FA /* ZShopFoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopFoodDetailViewController.m; sourceTree = "<group>"; };
+		953886B91D5F17C20060A3FA /* ZShopFoodDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShopFoodDetailViewController.xib; sourceTree = "<group>"; };
 		956375D51D5866FE00145D7E /* ZShoppingCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarView.h; sourceTree = "<group>"; };
 		956375D61D5866FE00145D7E /* ZShoppingCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarView.m; sourceTree = "<group>"; };
 		956375DA1D586FA200145D7E /* ZShoppingCarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarView.xib; sourceTree = "<group>"; };
@@ -228,7 +233,17 @@
 			name = TransitionAnimator;
 			sourceTree = "<group>";
 		};
-		956375D41D5866D900145D7E /* ShoppingCar */ = {
+		953886BB1D5F17D70060A3FA /* Food Deail (菜品详情) */ = {
+			isa = PBXGroup;
+			children = (
+				953886B61D5F12850060A3FA /* ZShopFoodDetailViewController.h */,
+				953886B71D5F12850060A3FA /* ZShopFoodDetailViewController.m */,
+				953886B91D5F17C20060A3FA /* ZShopFoodDetailViewController.xib */,
+			);
+			name = "Food Deail (菜品详情)";
+			sourceTree = "<group>";
+		};
+		956375D41D5866D900145D7E /* ShoppingCar (购物车) */ = {
 			isa = PBXGroup;
 			children = (
 				956375D51D5866FE00145D7E /* ZShoppingCarView.h */,
@@ -239,6 +254,7 @@
 				953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */,
 				953886B51D5DADDC0060A3FA /* TransitionAnimator */,
 			);
+			name = "ShoppingCar (购物车)";
 			path = ShoppingCar;
 			sourceTree = "<group>";
 		};
@@ -466,7 +482,7 @@
 			children = (
 				95E39A981D54820000750BD7 /* ZShopViewController.h */,
 				95E39A991D54820000750BD7 /* ZShopViewController.m */,
-				956375D41D5866D900145D7E /* ShoppingCar */,
+				956375D41D5866D900145D7E /* ShoppingCar (购物车) */,
 				95E39A8C1D54820000750BD7 /* Comment (评价) */,
 				95E39A8D1D54820000750BD7 /* Food (点菜) */,
 				95E39A921D54820000750BD7 /* Model */,
@@ -488,6 +504,7 @@
 		95E39A8D1D54820000750BD7 /* Food (点菜) */ = {
 			isa = PBXGroup;
 			children = (
+				953886BB1D5F17D70060A3FA /* Food Deail (菜品详情) */,
 				95E39AA81D561E3200750BD7 /* Views */,
 				95E39A901D54820000750BD7 /* ZShopFoodViewController.h */,
 				95E39A911D54820000750BD7 /* ZShopFoodViewController.m */,
@@ -601,6 +618,7 @@
 				95E39A691D50D7F700750BD7 /* food.json in Resources */,
 				95E1EE9C1D4F008800C13F30 /* Assets.xcassets in Resources */,
 				95E1EE9A1D4F008800C13F30 /* Main.storyboard in Resources */,
+				953886BA1D5F17C20060A3FA /* ZShopFoodDetailViewController.xib in Resources */,
 				953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +644,7 @@
 				95E1EF821D4F772D00C13F30 /* UIImage+WebP.m in Sources */,
 				95D862FB1D5638E200C6EB14 /* ZShopFoodHeaderView.m in Sources */,
 				95E39A9B1D54820000750BD7 /* ZShopFoodViewController.m in Sources */,
+				953886B81D5F12850060A3FA /* ZShopFoodDetailViewController.m in Sources */,
 				956375D71D5866FE00145D7E /* ZShoppingCarView.m in Sources */,
 				95E1EF741D4F772D00C13F30 /* View+MASAdditions.m in Sources */,
 				95E1EF8A1D4F772D00C13F30 /* SVRadialGradientLayer.m in Sources */,
