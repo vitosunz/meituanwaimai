@@ -14,10 +14,13 @@
 
 static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
 
-@interface ZShopFoodDetailViewController ()
+@interface ZShopFoodDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+/* 图像视图高度的约束 */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeightConstant;
 
 @end
 
@@ -67,5 +70,30 @@ static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
     return cell;
 }
 
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 实际拖拽产生的偏移量计算
+    CGFloat offset = scrollView.contentOffset.y + scrollView.contentInset.top;
+    
+    // offset > 0 向上移动, 反之向下
+    ZLog(@"offset %f", offset);
+    
+    // 根据拖拽偏移, 来修改图片的高度
+    CGFloat height = HeaderHeight - offset;
+    if (height <= 0) {
+        // 向上拖拽时, 不修改
+        return;
+    }
+    
+    // 向下拖拽, 修改高度约束
+    _imageHeightConstant.constant = height;
+    
+    // 注意:  Masonry的约束不能和IB中的约束混用!
+//    [_imageView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(height);
+//    }];
+}
 
 @end
