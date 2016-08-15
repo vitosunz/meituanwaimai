@@ -7,6 +7,8 @@
 //
 
 #import "ZShopFoodDetailViewController.h"
+#import "ZShopFood.h"
+#import "UIImageView+WebCache.h"
 
 #define HeaderHeight 200
 
@@ -35,6 +37,13 @@ static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
     
     // 注册重用Cell
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:FoodDetailReuseID];
+    
+    // -------- 加载菜品图片 --------
+    NSString *urlString = [_food.picture stringByDeletingPathExtension];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    // 加载URL图片到imageView上
+    [_imageView sd_setImageWithURL:url];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

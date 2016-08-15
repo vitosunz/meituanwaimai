@@ -426,6 +426,10 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
     ZLog(@"food : %@", food);
     
     ZShopFoodDetailViewController *detailVC = [[ZShopFoodDetailViewController alloc] init];
+    
+    // 配置数据模型
+    detailVC.food = food;
+    
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

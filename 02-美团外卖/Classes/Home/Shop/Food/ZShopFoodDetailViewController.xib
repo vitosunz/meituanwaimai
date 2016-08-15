@@ -25,7 +25,7 @@
                         <outlet property="delegate" destination="-1" id="rm0-Lz-Ip5"/>
                     </connections>
                 </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-nh-b41">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ec1-nh-b41">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="6CE-wF-g7t"/>
