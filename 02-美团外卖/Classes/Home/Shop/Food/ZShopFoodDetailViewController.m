@@ -9,6 +9,7 @@
 #import "ZShopFoodDetailViewController.h"
 #import "ZShopFood.h"
 #import "UIImageView+WebCache.h"
+#import "ZFoodDetailHeaderView.h"
 
 #define HeaderHeight 200
 
@@ -47,6 +48,13 @@ static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
     
     // 加载URL图片到imageView上
     [_imageView sd_setImageWithURL:url];
+    
+    // -------- 设置TableView的表头视图 --------
+    ZFoodDetailHeaderView *headerView = [ZFoodDetailHeaderView foodDetailHeaderView];
+    _tableView.tableHeaderView =headerView;
+    
+    // 配置数据模型
+    headerView.food = self.food;
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -58,11 +66,7 @@ static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *reuseID = @"CellReuseID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseID];
-    if ( !cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseID];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FoodDetailReuseID];
 
     // -------- 配置Cell --------
     cell.textLabel.text = @(indexPath.row).description;

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		95243F531D579D6D0043E90B /* ZShopOrderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 95243F521D579D6D0043E90B /* ZShopOrderControl.m */; };
 		95243F551D579D8F0043E90B /* ZShopOrderControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95243F541D579D8F0043E90B /* ZShopOrderControl.xib */; };
+		95369A3E1D61AEC40051EE00 /* ZFoodDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */; };
+		95369A401D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */; };
 		953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */; };
 		953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */; };
 		953886B41D5DADC90060A3FA /* ZShoppingCarPresentationControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */; };
@@ -80,6 +82,9 @@
 		95243F511D579D6D0043E90B /* ZShopOrderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShopOrderControl.h; sourceTree = "<group>"; };
 		95243F521D579D6D0043E90B /* ZShopOrderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShopOrderControl.m; sourceTree = "<group>"; };
 		95243F541D579D8F0043E90B /* ZShopOrderControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShopOrderControl.xib; sourceTree = "<group>"; };
+		95369A3C1D61AEC40051EE00 /* ZFoodDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFoodDetailHeaderView.h; sourceTree = "<group>"; };
+		95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFoodDetailHeaderView.m; sourceTree = "<group>"; };
+		95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFoodDetailHeaderView.xib; sourceTree = "<group>"; };
 		953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarViewController.h; sourceTree = "<group>"; };
 		953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarViewController.m; sourceTree = "<group>"; };
 		953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +244,9 @@
 				953886B61D5F12850060A3FA /* ZShopFoodDetailViewController.h */,
 				953886B71D5F12850060A3FA /* ZShopFoodDetailViewController.m */,
 				953886B91D5F17C20060A3FA /* ZShopFoodDetailViewController.xib */,
+				95369A3C1D61AEC40051EE00 /* ZFoodDetailHeaderView.h */,
+				95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */,
+				95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */,
 			);
 			name = "Food Deail (菜品详情)";
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 				95E1EE9C1D4F008800C13F30 /* Assets.xcassets in Resources */,
 				95E1EE9A1D4F008800C13F30 /* Main.storyboard in Resources */,
 				953886BA1D5F17C20060A3FA /* ZShopFoodDetailViewController.xib in Resources */,
+				95369A401D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib in Resources */,
 				953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,6 +654,7 @@
 				95D862FB1D5638E200C6EB14 /* ZShopFoodHeaderView.m in Sources */,
 				95E39A9B1D54820000750BD7 /* ZShopFoodViewController.m in Sources */,
 				953886B81D5F12850060A3FA /* ZShopFoodDetailViewController.m in Sources */,
+				95369A3E1D61AEC40051EE00 /* ZFoodDetailHeaderView.m in Sources */,
 				956375D71D5866FE00145D7E /* ZShoppingCarView.m in Sources */,
 				95E1EF741D4F772D00C13F30 /* View+MASAdditions.m in Sources */,
 				95E1EF8A1D4F772D00C13F30 /* SVRadialGradientLayer.m in Sources */,
