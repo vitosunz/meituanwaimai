@@ -11,6 +11,7 @@
 		95243F551D579D8F0043E90B /* ZShopOrderControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95243F541D579D8F0043E90B /* ZShopOrderControl.xib */; };
 		95369A3E1D61AEC40051EE00 /* ZFoodDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */; };
 		95369A401D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */; };
+		95369A441D62F3CA0051EE00 /* ZFoodDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95369A421D62F3CA0051EE00 /* ZFoodDetailPageViewController.m */; };
 		953886B01D5D79290060A3FA /* ZShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */; };
 		953886B11D5D79290060A3FA /* ZShoppingCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */; };
 		953886B41D5DADC90060A3FA /* ZShoppingCarPresentationControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 953886B31D5DADC90060A3FA /* ZShoppingCarPresentationControl.m */; };
@@ -85,6 +86,8 @@
 		95369A3C1D61AEC40051EE00 /* ZFoodDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFoodDetailHeaderView.h; sourceTree = "<group>"; };
 		95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFoodDetailHeaderView.m; sourceTree = "<group>"; };
 		95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZFoodDetailHeaderView.xib; sourceTree = "<group>"; };
+		95369A411D62F3CA0051EE00 /* ZFoodDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFoodDetailPageViewController.h; sourceTree = "<group>"; };
+		95369A421D62F3CA0051EE00 /* ZFoodDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFoodDetailPageViewController.m; sourceTree = "<group>"; };
 		953886AD1D5D79290060A3FA /* ZShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZShoppingCarViewController.h; sourceTree = "<group>"; };
 		953886AE1D5D79290060A3FA /* ZShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZShoppingCarViewController.m; sourceTree = "<group>"; };
 		953886AF1D5D79290060A3FA /* ZShoppingCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZShoppingCarViewController.xib; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				95369A3C1D61AEC40051EE00 /* ZFoodDetailHeaderView.h */,
 				95369A3D1D61AEC40051EE00 /* ZFoodDetailHeaderView.m */,
 				95369A3F1D61AEDA0051EE00 /* ZFoodDetailHeaderView.xib */,
+				95369A411D62F3CA0051EE00 /* ZFoodDetailPageViewController.h */,
+				95369A421D62F3CA0051EE00 /* ZFoodDetailPageViewController.m */,
 			);
 			name = "Food Deail (菜品详情)";
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				95E1EF6C1D4F772D00C13F30 /* MASCompositeConstraint.m in Sources */,
 				95E1EF6F1D4F772D00C13F30 /* MASLayoutConstraint.m in Sources */,
 				95E1EF771D4F772D00C13F30 /* NSData+ImageContentType.m in Sources */,
+				95369A441D62F3CA0051EE00 /* ZFoodDetailPageViewController.m in Sources */,
 				95E1EE911D4F008800C13F30 /* main.m in Sources */,
 				95E1EF911D4F785B00C13F30 /* UIColor+ZUtilities.m in Sources */,
 				95D863011D56E83300C6EB14 /* ZShopFoodListCell.m in Sources */,

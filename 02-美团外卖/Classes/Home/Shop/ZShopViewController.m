@@ -15,7 +15,7 @@
 #import "ZShopFoodCategory.h"
 #import "ZShopFood.h"
 #import "ZShoppingCarViewController.h"
-#import "ZShopFoodDetailViewController.h"
+#import "ZFoodDetailPageViewController.h"
 
 // C语言的常量值通常使用k开头
 #define HeaderViewHeight 124    // 顶部视图的高度
@@ -425,12 +425,13 @@ extern NSString *const ZShopFoodIncreaseCenterKey;  // 加号按钮中心点
 {
     ZLog(@"food : %@", food);
     
-    ZShopFoodDetailViewController *detailVC = [[ZShopFoodDetailViewController alloc] init];
+    // -------- 跳转到菜品详情分页控制器 --------
+    ZFoodDetailPageViewController *pageVC = [[ZFoodDetailPageViewController alloc] init];
     
-    // 配置数据模型
-    detailVC.food = food;
+    pageVC.foodList = _foodCategorys;
+    pageVC.currentFood = food;
     
-    [self.navigationController pushViewController:detailVC animated:YES];
+    [self.navigationController pushViewController:pageVC animated:YES];
 }
 
 #pragma mark - 数据加载
