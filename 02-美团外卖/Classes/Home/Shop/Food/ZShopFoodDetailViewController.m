@@ -82,7 +82,7 @@ static NSString *FoodDetailReuseID = @"FoodDetailReuseID";
     CGFloat offset = scrollView.contentOffset.y + scrollView.contentInset.top;
     
     // offset > 0 向上移动, 反之向下
-    ZLog(@"offset %f", offset);
+//    ZLog(@"offset %f", offset);
     
     // 根据拖拽偏移, 来修改图片的高度
     CGFloat height = HeaderHeight - offset;
